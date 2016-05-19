@@ -1,0 +1,65 @@
+diff -urN php-5.3.6.orig/configure php-5.3.6/configure
+--- php-5.3.6.orig/configure	2010-07-21 12:53:06.000000000 +0200
++++ php-5.3.6/configure	2014-05-19 13:03:27.000000000 +0200
+@@ -36458,61 +36458,11 @@
+ 
+   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for strcasestr" >&5
+ $as_echo_n "checking for strcasestr... " >&6; }
+-  if test "$cross_compiling" = yes; then :
+-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "cannot run test program while cross compiling
+-See \`config.log' for more details" "$LINENO" 5 ; }
+-else
+-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+-/* end confdefs.h.  */
+ 
+-#include <string.h>
+-#include <strings.h>
+-#include <stdlib.h>
+-
+-int main(void)
+-{
+-        char *s0, *s1, *ret;
+-
+-        s0 = (char *) malloc(42);
+-        s1 = (char *) malloc(8);
+-
+-        memset(s0, 'X', 42);
+-        s0[24] = 'Y';
+-        s0[26] = 'Z';
+-        s0[41] = '\0';
+-        memset(s1, 'x', 8);
+-        s1[0] = 'y';
+-        s1[2] = 'Z';
+-        s1[7] = '\0';
+-
+-        ret = strcasestr(s0, s1);
+-
+-        return !(NULL != ret);
+-}
+-
+-_ACEOF
+-if ac_fn_c_try_run "$LINENO"; then :
+-
+-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+-$as_echo "yes" >&6; }
+-
+-else
+-
+-    { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+-$as_echo "no" >&6; }
+     { $as_echo "$as_me:${as_lineno-$LINENO}: using libmagic strcasestr implementation" >&5
+ $as_echo "$as_me: using libmagic strcasestr implementation" >&6;}
+     libmagic_sources="$libmagic_sources libmagic/strcasestr.c"
+ 
+-fi
+-rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+-  conftest.$ac_objext conftest.beam conftest.$ac_ext
+-fi
+-
+-
+-
+   ext_builddir=ext/fileinfo
+   ext_srcdir=$abs_srcdir/ext/fileinfo
+ 

@@ -1,0 +1,66 @@
+diff -urN php-5.3.3.orig/configure php-5.3.3/configure
+--- php-5.3.3.orig/configure	2010-07-21 12:53:06.000000000 +0200
++++ php-5.3.3/configure	2014-05-19 13:03:27.000000000 +0200
+@@ -5431,7 +5431,6 @@
+   APXS_BINDIR=`$APXS -q BINDIR`
+   APXS_HTTPD=`$APXS -q SBINDIR`/`$APXS -q TARGET`
+   APXS_CFLAGS=`$APXS -q CFLAGS`
+-  APXS_MPM=`$APXS -q MPM_NAME`
+   APU_BINDIR=`$APXS -q APU_BINDIR`
+   APR_BINDIR=`$APXS -q APR_BINDIR`
+ 
+@@ -6193,12 +6192,16 @@
+     ;;
+   esac
+ 
+-  if test "$APXS_MPM" != "prefork" && test "$APXS_MPM" != "peruser"; then
+-    
+-  enable_maintainer_zts=yes
+-  if test "$pthreads_working" != "yes"; then
+-    { echo "configure: error: ZTS currently requires working POSIX threads. We were unable to verify that your system supports Pthreads." 1>&2; exit 1; }
+-  fi
++  if test "$APACHE_VERSION" -lt 2004001; then
++    APXS_MPM=`$APXS -q MPM_NAME`
++    if test "$APXS_MPM" != "prefork" && test "$APXS_MPM" != "peruser" && test "$APXS_MPM" != "itk"; then
++      PHP_BUILD_THREAD_SAFE
++    fi
++  else
++    APACHE_THREADED_MPM=`$APXS_HTTPD -V | grep 'threaded:.*yes'`
++    if test -n "$APACHE_THREADED_MPM"; then
++      PHP_BUILD_THREAD_SAFE
++    fi
+ 
+   fi
+   echo "$ac_t""yes" 1>&6
+@@ -6279,7 +6282,6 @@
+   APXS_BINDIR=`$APXS -q BINDIR`
+   APXS_HTTPD=`$APXS -q SBINDIR`/`$APXS -q TARGET`
+   APXS_CFLAGS=`$APXS -q CFLAGS`
+-  APXS_MPM=`$APXS -q MPM_NAME`
+   APU_BINDIR=`$APXS -q APU_BINDIR`
+   APR_BINDIR=`$APXS -q APR_BINDIR`
+ 
+@@ -7041,13 +7043,16 @@
+     ;;
+   esac
+ 
+-  if test "$APXS_MPM" != "prefork" && test "$APXS_MPM" != "peruser" && test "$APXS_MPM" != "itk"; then
+-    
+-  enable_maintainer_zts=yes
+-  if test "$pthreads_working" != "yes"; then
+-    { echo "configure: error: ZTS currently requires working POSIX threads. We were unable to verify that your system supports Pthreads." 1>&2; exit 1; }
+-  fi
+-
++  if test "$APACHE_VERSION" -lt 2004001; then
++    APXS_MPM=`$APXS -q MPM_NAME`
++    if test "$APXS_MPM" != "prefork" && test "$APXS_MPM" != "peruser" && test "$APXS_MPM" != "itk"; then
++      PHP_BUILD_THREAD_SAFE
++    fi
++  else
++    APACHE_THREADED_MPM=`$APXS_HTTPD -V | grep 'threaded:.*yes'`
++    if test -n "$APACHE_THREADED_MPM"; then
++      PHP_BUILD_THREAD_SAFE
++    fi
+   fi
+   echo "$ac_t""yes" 1>&6
+   

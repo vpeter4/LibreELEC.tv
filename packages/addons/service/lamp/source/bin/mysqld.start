@@ -1,0 +1,84 @@
+#!/bin/sh
+
+################################################################################
+#      This file is part of OpenELEC - http://www.openelec.tv
+#      Copyright (C) 2009-2014 Stephan Raue (stephan@openelec.tv)
+#      Copyright (C) 2014 ultraman
+#      Copyright (C) 2014 streppuiu
+#      Copyright (C) 2014 dominic7il
+#
+#  OpenELEC is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  OpenELEC is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with OpenELEC.  If not, see <http://www.gnu.org/licenses/>.
+################################################################################
+
+. /etc/profile
+
+# service setup
+#oe_setup_addon service.web.lamp
+
+MYSQL_ROOT_PASS=123
+
+ADDON_ID=service.web.lamp
+ADDON_DIR="$HOME/.kodi/addons/$ADDON_ID"
+ADDON_HOME="$HOME/.kodi/userdata/addon_data/$ADDON_ID"
+
+export LD_LIBRARY_PATH=$ADDON_DIR/lib
+
+chmod a+x $ADDON_DIR/bin/*
+
+# create addon home dir
+mkdir -p "$ADDON_HOME"
+
+# check/create dir for socket
+mkdir -p /var/tmp/
+
+# check/create dir for pid
+mkdir -p /var/run/
+
+# exit if already running
+PID=$(ps aux | grep "$ADDON_DIR/bin/mysqld " | grep -v grep | awk '{print $1}')
+if [ -n "$PID" ]; then
+  echo "MySQLd is already running"
+  exit 0
+fi
+
+# set up initial tables if required
+FIRST_RUN=0
+if [ ! -d "$ADDON_HOME/data/mysql" ]; then
+  echo "Running first time table setup"
+  FIRST_RUN=1
+  $ADDON_DIR/bin/mysql_install_db --basedir=$ADDON_DIR --datadir=$ADDON_HOME/data
+fi
+
+# copy config file
+if [ ! -f "$ADDON_HOME/mysqld.cnf" ]; then
+  cp $ADDON_DIR/mysqld.cnf $ADDON_HOME/mysqld.cnf
+fi
+
+# create dir for logs
+mkdir -p /var/logs/
+
+# start mysqld
+exec $ADDON_DIR/bin/mysqld --defaults-file=$ADDON_HOME/mysqld.cnf &
+
+# set a root password
+if [ $FIRST_RUN == 1 ] ; then
+  echo "Setting up root password..."
+  # wait for db to start up
+  while ! $ADDON_DIR/bin/mysql -u root -e ";" 2> /dev/null; do
+    usleep 250000
+  done
+
+  $ADDON_DIR/bin/mysqladmin -u root password $MYSQL_ROOT_PASS
+  echo "Password is $MYSQL_ROOT_PASS"
+fi

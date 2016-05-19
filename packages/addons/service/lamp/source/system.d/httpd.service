@@ -1,0 +1,19 @@
+[Unit]
+Description=Apache Httpd Server
+After=graphical.target network-online.service
+Before=kodi.service
+
+[Service]
+Type=forking
+PIDFile=/var/logs/httpd.pid
+ExecStart=/bin/sh -c "exec sh /storage/.kodi/addons/service.web.lamp/bin/httpd.start"
+ExecStop=/bin/sh -c "exec sh /storage/.kodi/addons/service.web.lamp/bin/httpd.stop"
+TimeoutStartSec=60
+TimeoutStopSec=60
+Restart=always
+RestartSec=10
+StartLimitInterval=0
+
+[Install]
+Alias=httpd
+WantedBy=kodi.service

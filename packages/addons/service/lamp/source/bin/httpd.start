@@ -1,0 +1,117 @@
+#!/bin/sh
+
+################################################################################
+#      This file is part of OpenELEC - http://www.openelec.tv
+#      Copyright (C) 2009-2014 Stephan Raue (stephan@openelec.tv)
+#      Copyright (C) 2014 ultraman
+#      Copyright (C) 2014 streppuiu
+#      Copyright (C) 2014 dominic7il
+#
+#  OpenELEC is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  OpenELEC is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with OpenELEC.  If not, see <http://www.gnu.org/licenses/>.
+################################################################################
+
+# easy to upgrade same version again
+rm -f /storage/.kodi/addons/packages/service.web.lamp*
+
+. /etc/profile
+
+# service setup
+#oe_setup_addon service.web.lamp
+
+MYSQL_ROOT_PASS=123
+
+ADDON_ID=service.web.lamp
+ADDON_DIR="$HOME/.kodi/addons/$ADDON_ID"
+ADDON_HOME="$HOME/.kodi/userdata/addon_data/$ADDON_ID"
+
+export LD_LIBRARY_PATH=$ADDON_DIR/lib
+
+chmod a+x $ADDON_DIR/bin/*
+
+# start aria2c
+if [ -d $ADDON_HOME/www/htdocs/owncloud/apps/ocdownloader ]; then
+	echo "Starting aria2 daemon after 5 seconds"
+(
+	sleep 5
+  $ADDON_DIR/bin/aria2c --enable-rpc --rpc-allow-origin-all -c -D --log=$ADDON_HOME/aria2.log --check-certificate=false
+)&
+fi
+
+# exit if already running
+PID=$(ps aux | grep "$ADDON_DIR/bin/httpd " | grep -v grep | awk '{print $1}' | sort -k1 | head -n 1)
+if [ "$PID" != "" ]; then
+  echo "Apache is already running"
+  exit 0
+fi
+
+# copy files to user dir
+mkdir -p "$ADDON_HOME"
+
+if [ ! -d "$ADDON_HOME/srvroot" ]; then
+  cp -a "$ADDON_DIR/srvroot" "$ADDON_HOME"
+fi
+
+if [ ! -d "$ADDON_HOME/www" ]; then
+  cp -a "$ADDON_DIR/www" "$ADDON_HOME"
+fi
+
+chmod 600 $ADDON_HOME/srvroot/conf/msmtprc
+chown nobody $ADDON_HOME/srvroot/conf/msmtprc
+
+if [ ! -d $ADDON_HOME/ssl ]; then
+(
+	mkdir $ADDON_HOME/ssl
+	cd $ADDON_HOME/ssl
+
+	if [ ! -f ssl-server.conf ]; then
+	  cp $ADDON_DIR/ssl-server.conf ssl-server.conf
+	fi
+
+	echo "Creating SSL certificates"
+	openssl genrsa -out server.key 2048
+	openssl req -new -config ssl-server.conf -key server.key -out server.csr
+	openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+)
+fi
+
+if [ ! -f "$ADDON_HOME/www/htdocs/phpMyAdmin/config.inc.php" ]; then
+  echo "Copying phpMyAdmin config and changing password"
+  cp $ADDON_DIR/config.inc.php $ADDON_HOME/www/htdocs/phpMyAdmin/
+
+  echo "Creating phpMyAdmin password"
+  PHPMYADMIN_PASS=$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | md5sum | awk '{printf("%s",$1)}')
+  echo "Password is $PHPMYADMIN_PASS"
+  sed -i "s|my_phpMyAdmin_blowfish_secret|$PHPMYADMIN_PASS|" $ADDON_HOME/www/htdocs/phpMyAdmin/config.inc.php
+
+  echo "Creating phpMyAdmin pma password"
+  PHPMYADMIN_PMAPASS=$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | md5sum | awk '{printf("%s",$1)}')
+  echo "Password is $PHPMYADMIN_PMAPASS"
+  sed -i "s|my_phpMyAdmin_pmapass|$PHPMYADMIN_PMAPASS|" $ADDON_HOME/www/htdocs/phpMyAdmin/config.inc.php
+
+  cp $ADDON_DIR/*.sql $ADDON_HOME/
+  sed -i "s|my_phpMyAdmin_pmapass|$PHPMYADMIN_PMAPASS|" $ADDON_HOME/create_pma_controluser.sql
+
+  cat $ADDON_HOME/create_pma_controluser.sql | mysql --password=$MYSQL_ROOT_PASS -h localhost
+  cat $ADDON_HOME/create_pma_tables.sql | mysql --password=$MYSQL_ROOT_PASS -h localhost
+  echo "phpMyAdmin done"
+fi
+
+# create dir for mutex and logs
+mkdir -p /var/logs/
+
+# start httpd
+LOCPATH=$ADDON_DIR/lib/locale exec $ADDON_DIR/bin/httpd -d "$ADDON_HOME/srvroot" -f "$ADDON_HOME/srvroot/conf/httpd.conf" -E $ADDON_HOME/httpd.log -e info
+
+# LOCPATH is an environment variable that tells the setlocale() function
+# the name of the directory from which to load locale object files.
