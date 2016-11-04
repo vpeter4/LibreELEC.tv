@@ -1,20 +1,20 @@
 ################################################################################
-#      This file is part of LibreELEC - https://LibreELEC.tv
-#      Copyright (C) 2016 Team LibreELEC
-#      Copyright (C) 2014-2016 vpeter
+#      This file is part of OpenELEC - http://www.openelec.tv
+#      Copyright (C) 2009-2014 Stephan Raue (stephan@openelec.tv)
+#      Copyright (C) 2014-2015 vpeter
 #
-#  LibreELEC is free software: you can redistribute it and/or modify
+#  OpenELEC is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 2 of the License, or
 #  (at your option) any later version.
 #
-#  LibreELEC is distributed in the hope that it will be useful,
+#  OpenELEC is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
 #
 #  You should have received a copy of the GNU General Public License
-#  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
+#  along with OpenELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
 PKG_NAME="apr"
@@ -25,33 +25,31 @@ PKG_LICENSE="Apache License"
 PKG_SITE="http://apr.apache.org/"
 PKG_URL="http://archive.apache.org/dist/apr/$PKG_NAME-$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain"
-PKG_PRIORITY="optional"
 PKG_SECTION="web"
 PKG_SHORTDESC="The Apache Portable Runtime"
 PKG_LONGDESC="The Apache Portable Runtime (APR) is a supporting library for the Apache web server."
-PKG_MAINTAINER="vpeter"
 PKG_IS_ADDON="no"
+PKG_USE_CMAKE="no"
 PKG_AUTORECONF="yes"
 
 # for largefile seems only important thing are ac_cv_sizeof_*
 # but maybe I'm wrong
-
 export CFLAGS="$CFLAGS -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64"
 
 if [ "$TARGET_ARCH" = x86_64 ]; then
-	SIZEOF_SIZES="ac_cv_sizeof_pid_t=4 \
-	              ac_cv_sizeof_ssize_t=8 \
-	              ac_cv_sizeof_size_t=8 \
-	              ac_cv_sizeof_off_t=8 \
-	              ac_cv_sizeof_ino_t=8 \
-	              ac_cv_sizeof_struct_iovec=16"
+  SIZEOF_SIZES="ac_cv_sizeof_pid_t=4 \
+                ac_cv_sizeof_ssize_t=8 \
+                ac_cv_sizeof_size_t=8 \
+                ac_cv_sizeof_off_t=8 \
+                ac_cv_sizeof_ino_t=8 \
+                ac_cv_sizeof_struct_iovec=16"
 else
-	SIZEOF_SIZES="ac_cv_sizeof_pid_t=4 \
-	              ac_cv_sizeof_ssize_t=4 \
-	              ac_cv_sizeof_size_t=4 \
-	              ac_cv_sizeof_off_t=8 \
-	              ac_cv_sizeof_ino_t=8 \
-	              ac_cv_sizeof_struct_iovec=8"
+  SIZEOF_SIZES="ac_cv_sizeof_pid_t=4 \
+                ac_cv_sizeof_ssize_t=4 \
+                ac_cv_sizeof_size_t=4 \
+                ac_cv_sizeof_off_t=8 \
+                ac_cv_sizeof_ino_t=8 \
+                ac_cv_sizeof_struct_iovec=8"
 fi
 
 PKG_CONFIGURE_OPTS_TARGET="CC_FOR_BUILD=gcc \

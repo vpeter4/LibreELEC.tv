@@ -1,7 +1,7 @@
 ################################################################################
 #      This file is part of OpenELEC - http://www.openelec.tv
 #      Copyright (C) 2009-2014 Stephan Raue (stephan@openelec.tv)
-#      Copyright (C) 2014-2016 vpeter
+#      Copyright (C) 2014-2015 vpeter
 #      Copyright (C) 2014 dominic7il
 #
 #  OpenELEC is free software: you can redistribute it and/or modify
@@ -27,14 +27,13 @@ PKG_ARCH="any"
 PKG_LICENSE="LGPL"
 PKG_SITE="http://www.mysql.com"
 PKG_URL="http://ftp.gwdg.de/pub/misc/mysql/Downloads/MySQL-$PKG_MAIN_VERSION/mysql-$PKG_VERSION.tar.gz"
-PKG_DEPENDS_TARGET="toolchain zlib ncurses mysqld:host"
 PKG_DEPENDS_HOST="zlib:host"
-PKG_PRIORITY="optional"
+PKG_DEPENDS_TARGET="toolchain zlib netbsd-curses libressl mysqld:host"
 PKG_SECTION="database"
 PKG_SHORTDESC="mysql: A database server"
 PKG_LONGDESC="MySQL is a SQL (Structured Query Language) database server. SQL is the most popular database language in the world. MySQL is a client server implementation that consists of a server daemon mysqld and many different client programs/libraries."
-PKG_MAINTAINER="vpeter"
 PKG_IS_ADDON="no"
+PKG_USE_CMAKE="no"
 PKG_AUTORECONF="no"   # don't use yes
 
 TARGET_CFLAGS="$TARGET_CFLAGS -fPIC -DPIC -I$SYSROOT_PREFIX/usr/include/ncurses"
@@ -49,6 +48,7 @@ PKG_CONFIGURE_OPTS_TARGET="ac_cv_c_stack_direction=-1 \
                            --with-unix-socket-path=/var/tmp/mysql.socket \
                            --with-tcp-port=3306 \
                            --enable-static \
+                           --with-ssl=$SYSROOT_PREFIX/usr/lib \
                            --disable-shared \
                            --with-low-memory \
                            --enable-largefile \
@@ -83,13 +83,16 @@ PKG_CONFIGURE_OPTS_TARGET="ac_cv_c_stack_direction=-1 \
 
 # don't remove unpack function (will interfere with system package)
 unpack() {
-  MYSQL_PKG="$(echo $PKG_URL | sed 's%.*/\(.*\)$%\1%' | sed 's|%20| |g')"
-  SRC_ARCHIVE=$(readlink -f $SOURCES/$PKG_NAME/$MYSQL_PKG)
-
+  SRC_ARCHIVE="$SOURCES/$PKG_NAME/mysqld-$PKG_VERSION.tar.gz"
   mkdir $ROOT/$PKG_BUILD
   tar xzf "$SRC_ARCHIVE" -C $ROOT/$PKG_BUILD
   mv $ROOT/$PKG_BUILD/mysql-$PKG_VERSION/* $ROOT/$PKG_BUILD
   rmdir $ROOT/$PKG_BUILD/mysql-$PKG_VERSION
+}
+
+post_configure_host() {
+  : #
+  #sed -i 's|mysql-gen_lex_hash|./gen_lex_hash|' sql/Makefile
 }
 
 make_host() {
@@ -100,12 +103,23 @@ make_host() {
   make -C vio libvio.a
   make -C dbug libdbug.a
   make -C regex libregex.a
+
   make -C sql gen_lex_hash
+  #sed -i 's|mysql-gen_lex_hash|./gen_lex_hash|' sql/Makefile
+  #ln -s gen_lex_hash sql/mysql-gen_lex_hash
+
+  #echo ooooooooooo
+  #read a
+
   make -C scripts comp_sql
   make -C extra comp_err
 }
 
 makeinstall_host() {
+  cp -P sql/gen_lex_hash $ROOT/$TOOLCHAIN/bin/mysqld-gen_lex_hash
+}
+
+amakeinstall_host() {
   : # don't install anything
 }
 

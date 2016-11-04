@@ -19,7 +19,7 @@ Index: apr-1.5.2/Makefile.in
 ===================================================================
 --- apr-1.5.2.orig/Makefile.in
 +++ apr-1.5.2/Makefile.in
-@@ -20,7 +20,7 @@ INCDIR=./include
+@@ -19,7 +19,7 @@ INCDIR=./include
  OSDIR=$(top_srcdir)/include/arch/@OSDIR@
  DEFOSDIR=$(INCDIR)/arch/@DEFAULT_OSDIR@
  INCLUDES=-I$(INCDIR) -I$(OSDIR) -I$(DEFOSDIR) -I$(top_srcdir)/include/arch/@DEFAULT_OSDIR@ -I$(top_srcdir)/include -I$(top_srcdir)/include/private -I$(top_blddir)/include/private
@@ -28,7 +28,7 @@ Index: apr-1.5.2/Makefile.in
  #
  # Macros for target determination
  #
-@@ -47,7 +47,6 @@ LT_VERSION = @LT_VERSION@
+@@ -46,7 +46,6 @@ LT_VERSION = @LT_VERSION@
  
  CLEAN_TARGETS = apr-config.out apr.exp exports.c export_vars.c .make.dirs \
  	build/apr_rules.out tools/gen_test_char@EXEEXT@ \
@@ -36,7 +36,7 @@ Index: apr-1.5.2/Makefile.in
  	include/private/apr_escape_test_char.h
  DISTCLEAN_TARGETS = config.cache config.log config.status \
  	include/apr.h include/arch/unix/apr_private.h \
-@@ -135,9 +134,9 @@ tools/gen_test_char.lo: tools/gen_test_c
+@@ -134,9 +133,9 @@ tools/gen_test_char.lo: tools/gen_test_c
  	$(APR_MKDIR) tools
  	$(LT_COMPILE)
  

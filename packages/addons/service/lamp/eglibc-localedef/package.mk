@@ -1,7 +1,7 @@
 ################################################################################
 #      This file is part of OpenELEC - http://www.openelec.tv
 #      Copyright (C) 2009-2014 Stephan Raue (stephan@openelec.tv)
-#      Copyright (C) 2014-2016 ultraman
+#      Copyright (C) 2014 ultraman
 #
 #  OpenELEC is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -26,11 +26,9 @@ PKG_SITE="http://www.eglibc.org/"
 PKG_URL="http://sources.openelec.tv/devel/$PKG_NAME-$PKG_VERSION.tar.xz"
 PKG_DEPENDS_HOST="eglibc:host"
 PKG_DEPENDS_TARGET="toolchain eglibc eglibc-localedef:host"
-PKG_PRIORITY="optional"
 PKG_SECTION="utility"
 PKG_SHORTDESC="locale"
 PKG_LONGDESC="locale"
-PKG_MAINTAINER="ultraman"
 PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
 
@@ -40,9 +38,9 @@ pre_configure_host() {
 }
 
 make_host() {
-	# http://cross-lfs.org/view/clfs-sysroot/arm/cross-tools/eglibc.html
-	SUPPORTED_LOCALES="en_US.UTF-8/UTF-8"
-	make install-locales SUPPORTED-LOCALES=$SUPPORTED_LOCALES
+  # http://cross-lfs.org/view/clfs-sysroot/arm/cross-tools/eglibc.html
+  SUPPORTED_LOCALES="en_US.UTF-8/UTF-8"
+  make install-locales SUPPORTED-LOCALES=$SUPPORTED_LOCALES
 }
 
 makeinstall_host() {

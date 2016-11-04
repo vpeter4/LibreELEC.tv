@@ -110,7 +110,7 @@ diff -Naur mysql-5.1.38/sql/Makefile.am mysql-5.1.38.patch/sql/Makefile.am
  lex_hash.h:	gen_lex_hash.cc lex.h
  		$(MAKE) $(AM_MAKEFLAGS) gen_lex_hash$(EXEEXT)
 -		./gen_lex_hash$(EXEEXT) > $@-t
-+		mysql-gen_lex_hash$(EXEEXT) > $@-t
++		mysqld-gen_lex_hash$(EXEEXT) > $@-t
  		$(MV) $@-t $@
  
  # For testing of udf_example.so
@@ -122,7 +122,7 @@ diff -Naur mysql-5.1.38/sql/Makefile.in mysql-5.1.38.patch/sql/Makefile.in
  lex_hash.h:	gen_lex_hash.cc lex.h
  		$(MAKE) $(AM_MAKEFLAGS) gen_lex_hash$(EXEEXT)
 -		./gen_lex_hash$(EXEEXT) > $@-t
-+		mysql-gen_lex_hash$(EXEEXT) > $@-t
++		mysqld-gen_lex_hash$(EXEEXT) > $@-t
  		$(MV) $@-t $@
  
  # We might have some stuff not built in this build, but that we want to install

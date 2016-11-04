@@ -1,9 +1,6 @@
 ################################################################################
 #      This file is part of LibreELEC - https://LibreELEC.tv
 #      Copyright (C) 2016 Team LibreELEC
-#      Copyright (C) 2014 streppuiu
-#      Copyright (C) 2014 dominic7il
-#      Copyright (C) 2014-2016 vpeter
 #
 #  LibreELEC is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -21,25 +18,23 @@
 
 PKG_NAME="lamp"
 PKG_VERSION="1.0"
-PKG_REV="21"
+PKG_REV="100"
 PKG_ARCH="any"
-PKG_LICENSE=""
+PKG_LICENSE="GPL"
 PKG_SITE=""
 PKG_URL=""
-PKG_DEPENDS_TARGET="toolchain httpd php mysqld ssh2 phpMyAdmin eglibc-localedef:host smbclient msmtp aria2"
-# only httpd for debug
-#PKG_DEPENDS_TARGET="toolchain httpd"
-PKG_PRIORITY="optional"
-PKG_SECTION="service/web"
-PKG_SHORTDESC="LAMP (Linux Apache MySQL PHP) software bundle."
-PKG_LONGDESC="LAMP (Linux Apache MySQL PHP) software bundle. Done by ultraman, streppuiu, dominic7il"
-PKG_MAINTAINER="vpeter"
-PKG_IS_ADDON="yes"
-PKG_ADDON_TYPE="xbmc.service"
+PKG_DEPENDS_TARGET="toolchain httpd php mysqld ssh2 phpMyAdmin eglibc-localedef:host smbclient msmtp aria2 apcu"
+PKG_SECTION="service"
+PKG_SHORTDESC="LAMP: (Linux Apache MySQL PHP) software bundle."
+PKG_LONGDESC="LAMP ($PKG_VERSION.$PKG_REV): (Linux Apache MySQL PHP) software bundle."
 PKG_AUTORECONF="no"
-PKG_ADDON_NAME="Web server"
-# not actually used
-#PKG_ADDON_REPOVERSION="7.0"
+
+PKG_IS_ADDON="yes"
+PKG_ADDON_NAME="LAMP"
+PKG_ADDON_TYPE="xbmc.service"
+# PKG_ADDON_PROVIDES="executable"
+# PKG_MAINTAINER="John Doe (email)"
+
 
 make_target() {
   : # no sources here
@@ -50,11 +45,9 @@ makeinstall_target() {
 }
 
 addon() {
-#set +e  # no exit on error
-
   HTTPD_DIR=$(get_build_dir httpd)/.install_dev
   MYSQL_DIR=$(get_build_dir mysqld)/.install_pkg
-  PHPMYADMIN_BASE_DIR=$(basename $(get_build_dir phpMyAdmin))
+  PHPMYADMIN_BASE_NAME=$(basename $(get_build_dir phpMyAdmin))
   PHPMYADMIN_ZIP_DIR=$(readlink -f $SOURCES/phpMyAdmin)
 
   # create bin folder and copy binaries
@@ -79,6 +72,8 @@ addon() {
   cp -PR $(get_build_dir apr-util)/.install_dev/usr/lib/apr-util-1/*.so* $ADDON_BUILD/$PKG_ADDON_ID/lib
 
   cp $(get_build_dir ssh2)/modules/ssh2.so $ADDON_BUILD/$PKG_ADDON_ID/lib
+  cp $(get_build_dir apcu)/modules/apcu.so $ADDON_BUILD/$PKG_ADDON_ID/lib
+
   cp $(get_build_dir php)/.install_dev/usr/lib/libphp5.so $ADDON_BUILD/$PKG_ADDON_ID/lib
   cp $(get_build_dir bzip2)/.install_pkg/usr/lib/libbz2.so.1.0 $ADDON_BUILD/$PKG_ADDON_ID/lib
   cp $(get_build_dir curl)/.install_pkg/usr/lib/libcurl.so.4 $ADDON_BUILD/$PKG_ADDON_ID/lib
@@ -97,8 +92,6 @@ addon() {
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/www
 
   cp -PR $HTTPD_DIR/usr/htdocs $ADDON_BUILD/$PKG_ADDON_ID/www
-  #cp -PR $HTTPD_DIR/usr/cgi-bin $ADDON_BUILD/$PKG_ADDON_ID/www
-  #cp -PR $HTTPD_DIR/usr/manual $ADDON_BUILD/$PKG_ADDON_ID/www
   cp -PR $HTTPD_DIR/usr/icons $ADDON_BUILD/$PKG_ADDON_ID/www
 
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/www/htdocs
@@ -134,14 +127,14 @@ addon() {
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/www/htdocs
 (
   cd $ADDON_BUILD/$PKG_ADDON_ID/www/htdocs
-  unzip -qq "$PHPMYADMIN_ZIP_DIR/$PHPMYADMIN_BASE_DIR-*.zip"
+  unzip -qq "$PHPMYADMIN_ZIP_DIR/$PHPMYADMIN_BASE_NAME.zip"
   mv phpMyAdmin-* phpMyAdmin
 )
 
   cp $PKG_DIR/config/config.inc.php $ADDON_BUILD/$PKG_ADDON_ID
 
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/srvroot/conf/certs
-  # fix this
+  # how to fix this
   cp /etc/ssl/certs/ca-certificates.crt $ADDON_BUILD/$PKG_ADDON_ID/srvroot/conf/certs
 
   # list libraries
@@ -168,69 +161,4 @@ addon() {
     echo "missing libraries"
     echo ""
   fi
-
-
-
-}
-
-remove_all_packages() {
-
-(
-rm -fr target/addons
-rm -fr build.OpenELEC-*/addons
-rm -fr build.OpenELEC-*/apr*
-rm -fr build.OpenELEC-*/apr-util*
-rm -fr build.OpenELEC-*/eglibc*
-rm -fr build.OpenELEC-*/eglibc-localedef*
-rm -fr build.OpenELEC-*/httpd*
-rm -fr build.OpenELEC-*/libmcrypt*
-rm -fr build.OpenELEC-*/libssh2*
-rm -fr build.OpenELEC-*/msmtp*
-rm -fr build.OpenELEC-*/mysqld*
-rm -fr build.OpenELEC-*/openssl*
-rm -fr build.OpenELEC-*/php*
-rm -fr build.OpenELEC-*/phpMyAdmin*
-rm -fr build.OpenELEC-*/smbclient*
-rm -fr build.OpenELEC-*/ssh2*
-rm -fr build.OpenELEC-*/sendmail*
-rm -fr build.OpenELEC-*/cyrus-sasl*
-rm -fr build.OpenELEC-*/icu4c*
-
-rm -fr build.OpenELEC-*/.stamps/lamp*
-rm -fr build.OpenELEC-*/.stamps/apr*
-rm -fr build.OpenELEC-*/.stamps/apr-util*
-rm -fr build.OpenELEC-*/.stamps/eglibc*
-rm -fr build.OpenELEC-*/.stamps/eglibc-localedef*
-rm -fr build.OpenELEC-*/.stamps/httpd*
-rm -fr build.OpenELEC-*/.stamps/libmcrypt*
-rm -fr build.OpenELEC-*/.stamps/libssh2*
-rm -fr build.OpenELEC-*/.stamps/msmtp*
-rm -fr build.OpenELEC-*/.stamps/mysqld*
-rm -fr build.OpenELEC-*/.stamps/openssl*
-rm -fr build.OpenELEC-*/.stamps/php*
-rm -fr build.OpenELEC-*/.stamps/phpMyAdmin*
-rm -fr build.OpenELEC-*/.stamps/smbclient*
-rm -fr build.OpenELEC-*/.stamps/ssh2*
-rm -fr build.OpenELEC-*/.stamps/sendmail*
-rm -fr build.OpenELEC-*/.stamps/cyrus-sasl*
-rm -fr build.OpenELEC-*/.stamps/icu4c*
-
-rm -fr build.OpenELEC-*/addons/lamp
-)
-
-(
-PROJECT=Generic ARCH=x86_64 ./scripts/create_addon lamp 2>&1 | tee lamp-generic
-PROJECT=RPi ARCH=arm ./scripts/create_addon lamp | tee lamp-rpi
-PROJECT=RPi2 ARCH=arm ./scripts/create_addon lamp | tee lamp-rpi2
-PROJECT=imx6 ARCH=arm ./scripts/create_addon lamp | tee lamp-imx6
-)
-
-(
-PROJECT=Generic ARCH=x86_64 make release | tee log1
-PROJECT=imx6 ARCH=arm make release | tee log2
-PROJECT=RPi ARCH=arm make release | tee log3
-PROJECT=RPi2 ARCH=arm make release | tee log4
-)
-
-
 }

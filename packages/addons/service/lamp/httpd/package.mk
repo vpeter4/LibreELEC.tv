@@ -1,36 +1,34 @@
 ################################################################################
-#      This file is part of LibreELEC - https://LibreELEC.tv
-#      Copyright (C) 2016 Team LibreELEC
-#      Copyright (C) 2014-2016 vpeter
+#      This file is part of OpenELEC - http://www.openelec.tv
+#      Copyright (C) 2009-2014 Stephan Raue (stephan@openelec.tv)
+#      Copyright (C) 2014-2015 vpeter
 #      Copyright (C) 2014 streppuiu
 #
-#  LibreELEC is free software: you can redistribute it and/or modify
+#  OpenELEC is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 2 of the License, or
 #  (at your option) any later version.
 #
-#  LibreELEC is distributed in the hope that it will be useful,
+#  OpenELEC is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
 #
 #  You should have received a copy of the GNU General Public License
-#  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
+#  along with OpenELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
 PKG_NAME="httpd"
-PKG_VERSION="2.4.18"
+PKG_VERSION="2.4.23"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="OpenSource"
 PKG_SITE="http://www.linuxfromscratch.org/blfs/view/svn/server/apache.html"
 PKG_URL="http://archive.apache.org/dist/httpd/$PKG_NAME-$PKG_VERSION.tar.bz2"
-PKG_DEPENDS_TARGET="toolchain apr-util libressl"
-PKG_PRIORITY="optional"
+PKG_DEPENDS_TARGET="toolchain apr-util libressl pcre libxml2"
 PKG_SECTION="web"
 PKG_SHORTDESC="The Apache web server."
 PKG_LONGDESC="The Apache web server."
-PKG_MAINTAINER="vpeter"
 PKG_IS_ADDON="no"
 PKG_AUTORECONF="yes"
 
@@ -54,9 +52,9 @@ configure_target() {
   export LDFLAGS="$LDFLAGS -L$SYSROOT_PREFIX/usr/lib -lpthread -ldl"
 
 if [ "$TARGET_ARCH" = x86_64 ]; then
-	SIZEOF_SIZES="ac_cv_sizeof_struct_iovec=16"
+  SIZEOF_SIZES="ac_cv_sizeof_struct_iovec=16"
 else
-	SIZEOF_SIZES="ac_cv_sizeof_struct_iovec=8"
+  SIZEOF_SIZES="ac_cv_sizeof_struct_iovec=8"
 fi
 
   PKG_CONFIGURE_OPTS_TARGET="CC_FOR_BUILD=gcc \

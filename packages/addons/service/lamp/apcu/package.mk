@@ -1,5 +1,3 @@
-#!/bin/sh
-
 ################################################################################
 #      This file is part of OpenELEC - http://www.openelec.tv
 #      Copyright (C) 2009-2014 Stephan Raue (stephan@openelec.tv)
@@ -19,19 +17,37 @@
 #  along with OpenELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-. /etc/profile
+PKG_NAME="apcu"
+# PHP 5.3.0 or newer
+PKG_VERSION="4.0.11"
+# Release 5.1.5:  PHP Version: PHP 7.0.0-dev or newer
+PKG_REV="1"
+PKG_ARCH="any"
+PKG_LICENSE=""
+PKG_SITE="https://pecl.php.net/package/APCu"
+PKG_URL="https://pecl.php.net/get/$PKG_NAME-$PKG_VERSION.tgz"
+#PKG_DEPENDS_TARGET="toolchain libssh2 php"
+PKG_DEPENDS_TARGET="toolchain"
+PKG_SECTION="security"
+PKG_SHORTDESC="APC User Caching"
+PKG_LONGDESC="APC User Caching"
+PKG_IS_ADDON="no"
+PKG_AUTORECONF="no"
 
-# service setup
-#oe_setup_addon service.web.lamp
+pre_configure_target() {
+  PHP_DIR=$(get_build_dir php)/.install_dev
 
-ADDON_ID=service.web.lamp
-ADDON_DIR="$HOME/.kodi/addons/$ADDON_ID"
-ADDON_HOME="$HOME/.kodi/userdata/addon_data/$ADDON_ID"
+  PKG_CONFIGURE_OPTS_TARGET="--with-php-config=$PHP_DIR/usr/bin/php-config"
 
-# create separate sevices
-systemctl enable $ADDON_DIR/system.d/mysqld.service
-systemctl enable $ADDON_DIR/system.d/httpd.service
+  PHP_AUTOCONF=$ROOT/$TOOLCHAIN/bin/autoconf \
+  PHP_AUTOHEADER=$ROOT/$TOOLCHAIN/bin/autoheader \
+  $PHP_DIR/usr/bin/phpize
 
-# and start them
-systemctl start mysqld.service
-systemctl start httpd.service
+  rm aclocal.m4
+  mkdir m4
+  do_autoreconf .
+}
+
+makeinstall_target() {
+  : # nothing to install
+}
