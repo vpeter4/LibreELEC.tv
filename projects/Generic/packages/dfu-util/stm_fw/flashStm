@@ -1,0 +1,41 @@
+#!/bin/bash
+
+fw_file="$1"
+
+echo ""
+  
+if [ -z "$fw_file" ]; then
+  echo "Using: $0 CECbridge.bin"
+  echo ""
+  exit 1
+fi
+
+if [ -r "$fw_file" ]; then
+  echo "Flashing with $fw_file..."
+  echo ""
+else
+  echo "File $fw_file doesn't exist..."
+  echo ""
+  exit 1
+fi
+
+echo 349 >/sys/class/gpio/export
+echo 351 >/sys/class/gpio/export
+
+echo out >/sys/class/gpio/gpio349/direction
+echo 1 >/sys/class/gpio/gpio349/value
+echo out >/sys/class/gpio/gpio351/direction
+echo 0 >/sys/class/gpio/gpio351/value
+echo 1 >/sys/class/gpio/gpio351/value
+
+sleep 2
+
+dfu-util -D "$fw_file" -s 0x08000000:mass-erase:force:leave -a 0 -R -S FFFFFFFEFFFF
+
+echo 0 >/sys/class/gpio/gpio349/value
+echo 0 >/sys/class/gpio/gpio351/value
+echo 1 >/sys/class/gpio/gpio351/value
+
+echo ""
+echo "Done."
+echo ""
