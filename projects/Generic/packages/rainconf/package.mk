@@ -16,20 +16,18 @@
 #  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="Generic"
-PKG_VERSION=""
+PKG_NAME="rainconf"
+PKG_VERSION="4879dac"
 PKG_ARCH="any"
-PKG_LICENSE="various"
-PKG_SITE="http://www.libreelec.tv/"
-PKG_URL=""
+PKG_LICENSE="GPL3"
+PKG_SITE="https://github.com/gdachs/rainconf"
+PKG_URL="https://github.com/gdachs/rainconf/archive/$PKG_VERSION.tar.gz"
+PKG_DEPENDS_TARGET="toolchain"
+PKG_SECTION="system"
+PKG_SHORTDESC="Utility to configure rainshadow protocol"
+PKG_LONGDESC="Utility to configure rainshadow protocol"
 
-PKG_DEPENDS_TARGET="dfu-util \
-                    rainconf \
-                    minicom \
-                    nbench"
-
-PKG_SECTION="virtual"
-PKG_SHORTDESC="Generic: Metapackage for various Generic packages"
-PKG_LONGDESC="Generic: Metapackage for various Generic packages"
 PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
+
+PKG_CMAKE_SCRIPT="$ROOT/$PKG_BUILD/src/CMakeLists.txt"
