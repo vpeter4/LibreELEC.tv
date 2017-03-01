@@ -33,7 +33,10 @@ PKG_AUTORECONF="no"
 post_makeinstall_target() {
   mkdir -p $INSTALL/usr/bin
   cp $PKG_DIR/stm_fw/flashStm $INSTALL/usr/bin
+  chmod 755 $INSTALL/usr/bin/flashStm
 
   mkdir -p $INSTALL/usr/share/solidpc
-  cp $PKG_DIR/stm_fw/CECbridge.bin* $INSTALL/usr/share/solidpc
+  cp $PKG_DIR/stm_fw/CECbridge.bin $INSTALL/usr/share/solidpc
+  
+  # https://github.com/gdachs/cecbridge/blob/rainshadow/Debug/CECbridge.bin
 }

@@ -5,19 +5,27 @@ fw_file="$1"
 echo ""
   
 if [ -z "$fw_file" ]; then
-  echo "Using: $0 CECbridge.bin"
-  echo ""
+cat << EOF
+
+Usage:
+  $0 /path_to_file/CECbridge.bin
+
+or download new firmware file:
+  curl -L -o /tmp/CECbridge.bin https://github.com/gdachs/cecbridge/blob/rainshadow/Debug/CECbridge.bin?raw=true
+  $0 /tmp/CECbridge.bin
+
+EOF
   exit 1
 fi
 
-if [ -r "$fw_file" ]; then
-  echo "Flashing with $fw_file..."
-  echo ""
-else
+if [ ! -r "$fw_file" ]; then
   echo "File $fw_file doesn't exist..."
   echo ""
   exit 1
 fi
+
+echo "Flashing with $fw_file..."
+echo ""
 
 echo 349 >/sys/class/gpio/export
 echo 351 >/sys/class/gpio/export
