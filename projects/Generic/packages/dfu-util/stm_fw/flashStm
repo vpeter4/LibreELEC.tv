@@ -1,0 +1,49 @@
+#!/bin/bash
+
+fw_file="$1"
+
+echo ""
+  
+if [ -z "$fw_file" ]; then
+cat << EOF
+
+Usage:
+  $0 /path_to_file/CECbridge.bin
+
+or download new firmware file:
+  curl -L -o /tmp/CECbridge.bin https://github.com/gdachs/cecbridge/blob/rainshadow/Debug/CECbridge.bin?raw=true
+  $0 /tmp/CECbridge.bin
+
+EOF
+  exit 1
+fi
+
+if [ ! -r "$fw_file" ]; then
+  echo "File $fw_file doesn't exist..."
+  echo ""
+  exit 1
+fi
+
+echo "Flashing with $fw_file..."
+echo ""
+
+echo 349 >/sys/class/gpio/export
+echo 351 >/sys/class/gpio/export
+
+echo out >/sys/class/gpio/gpio349/direction
+echo 1 >/sys/class/gpio/gpio349/value
+echo out >/sys/class/gpio/gpio351/direction
+echo 0 >/sys/class/gpio/gpio351/value
+echo 1 >/sys/class/gpio/gpio351/value
+
+sleep 2
+
+dfu-util -D "$fw_file" -s 0x08000000:mass-erase:force:leave -a 0 -R -S FFFFFFFEFFFF
+
+echo 0 >/sys/class/gpio/gpio349/value
+echo 0 >/sys/class/gpio/gpio351/value
+echo 1 >/sys/class/gpio/gpio351/value
+
+echo ""
+echo "Done."
+echo ""
