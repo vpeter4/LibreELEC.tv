@@ -18,9 +18,9 @@
 ################################################################################
 
 PKG_NAME="phpMyAdmin"
-PKG_VERSION="4.2.2"
+#PKG_VERSION="4.2.2"
 # needs new mysql
-#PKG_VERSION="4.2.11"
+PKG_VERSION="4.6.6"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPL2"
@@ -46,7 +46,7 @@ makeinstall_target() {
 }
 
 unpack() {
-  # folder required to make .openelec-unpack file
+  # folder required to make .libreelec-unpack file
   mkdir $ROOT/$PKG_BUILD
   # unpack directly in addon script
 }

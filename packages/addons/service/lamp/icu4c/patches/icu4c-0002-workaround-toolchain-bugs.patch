@@ -14,9 +14,9 @@ packages using this Sourcery CodeBench toolchain.qq
 Signed-off-by: Thomas Petazzoni <thomas.petazzoni@free-electrons.com>
 Signed-off-by: Gustavo Zacarias <gustavo@zacarias.com.ar>
 
-diff -Nura icu.orig/source/configure icu/source/configure
---- icu.orig/source/configure	2014-12-18 15:49:43.038628644 -0300
-+++ icu/source/configure	2014-12-18 15:51:23.183083232 -0300
+diff -Nura a/source/configure b/source/configure
+--- a/configure	2014-12-18 15:49:43.038628644 -0300
++++ b/configure	2014-12-18 15:51:23.183083232 -0300
 @@ -4323,7 +4323,7 @@
                  ;;
              esac

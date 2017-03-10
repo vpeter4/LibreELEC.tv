@@ -18,7 +18,7 @@
 [client]
 #password	= your_password
 port		= 3306
-socket		= /var/tmp/mysql.socket
+socket		= /tmp/mysql.sock
 
 # Here follows entries for some specific programs
 
@@ -29,7 +29,7 @@ basedir     = /storage/.kodi/addons/service.web.lamp
 datadir     = /storage/.kodi/userdata/addon_data/service.web.lamp/data
 log-error   = /storage/.kodi/userdata/addon_data/service.web.lamp/mysqld.log
 pid-file    = /var/run/mysqld.pid
-socket		= /var/tmp/mysql.socket
+socket		= /tmp/mysql.sock
 port		= 3306
 skip-external-locking
 key_buffer_size = 16K

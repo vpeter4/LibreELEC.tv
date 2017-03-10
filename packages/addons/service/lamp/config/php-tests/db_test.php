@@ -45,7 +45,7 @@
   //////////////////////////////////////////////////////////////////////
 
   // Create connection
-  $sql = mysqli_connect("localhost","root","123","test");
+  $sql = mysqli_connect("localhost", "root", "123");
 
   // Check connection
   if (mysqli_connect_errno()) {
@@ -77,7 +77,7 @@
 
 
 
-  $connect=mysql_connect("localhost","root","123") or die("Unable to Connect");
+  $connect=mysql_connect("localhost", "root", "123") or die("Unable to Connect");
   //$connect=mysql_connect("127.0.0.1:3306","root","123") or die("Unable to Connect");
   mysql_select_db("information_schema") or die("Could not open the db");
   $showtablequery="SHOW TABLES FROM information_schema";

@@ -20,8 +20,7 @@
 ################################################################################
 
 PKG_NAME="php"
-PKG_VERSION="5.6.20"
-PKG_VERSION="5.6.27"
+PKG_VERSION="5.6.30"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="OpenSource"
@@ -110,7 +109,7 @@ configure_target() {
                              --with-xsl=$SYSROOT_PREFIX/usr \
                              --enable-intl \
                              --disable-cgi \
-                             --without-gettext \
+                             --with-gettext \
                              --without-gmp \
                              --enable-json \
                              --enable-pcntl \
@@ -126,7 +125,7 @@ configure_target() {
                              --with-mcrypt=$LIBMCRYPT_DIR_TARGET/usr \
                              --with-mysqli=$SYSROOT_PREFIX/usr/bin/mysql_config \
                              --with-mysql=$SYSROOT_PREFIX/usr \
-                             --with-mysql-sock=/var/tmp/mysql.socket \
+                             --with-mysql-sock=/tmp/mysql.sock \
                              --with-pdo-mysql=$SYSROOT_PREFIX/usr \
                              --with-gd \
                              --enable-gd-native-ttf \
@@ -175,6 +174,8 @@ makeinstall_target() {
   sed -i "/prefix/ s|/usr|$INSTALL_DEV/usr|" $INSTALL_DEV/usr/bin/phpize
   sed -i "/extension_dir/ s|/usr|$INSTALL_DEV/usr|" $INSTALL_DEV/usr/bin/php-config
   sed -i "/prefix/ s|/usr|$INSTALL_DEV/usr|" $INSTALL_DEV/usr/bin/php-config
+  
+  sed -i "/phpdir=/ s|phpdir=.*|phpdir=\"$INSTALL_DEV/usr/lib/build\"|" $INSTALL_DEV/usr/bin/phpize
 }
 
 # zamenjaj php in naj namesti pear tudi

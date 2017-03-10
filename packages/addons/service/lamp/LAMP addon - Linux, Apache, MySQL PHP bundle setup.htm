@@ -1,0 +1,2613 @@
+<!DOCTYPE html>
+<html xml:lang="en-us" slick-uniqueid="3" lang="en-us"><head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="keywords" content="LAMP addon - Linux, Apache, MySQL PHP bundle, unofficial OpenELEC Addons, OpenELEC Addons, OpenELEC Forum">
+  <meta name="description" content="In last few weeks I helped users streppuiu and dominic7il making/using Apache web server and MySQL database server. At the...">
+  <meta name="generator" content="Joomla! - Open Source Content Management">
+  <title>OpenELEC Mediacenter - OpenELEC Forum - LAMP addon - Linux, Apache, MySQL PHP bundle (1/30)</title>
+  <link href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle" rel="canonical">
+  <link href="http://openelec.tv/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/mediaboxAdv-min.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/kunena_003.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/kunena.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/css.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/kunena_002.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/custom.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rokbox.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/widgetkit-4709cc2b.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/grid-responsive.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/master-fd4165916f30ee01022a5512c8dcbf3c.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/master-gecko.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/demo-fd4165916f30ee01022a5512c8dcbf3c.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/mediaqueries.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/grid-flexbox-responsive.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/menu-dropdown-direction.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/animate.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/odometer.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/menu.css" type="text/css">
+  <link rel="stylesheet" href="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/screen.css" type="text/css">
+  <style type="text/css">
+	/* Kunena Custom CSS */	#Kunena{font-family: 'Open Sans', sans-serif!important;}	#Kunena h1,#Kunena h2,#Kunena h3,#Kunena h4,#Kunena h5,#Kunena h6{font-family: 'Open Sans', sans-serif!important;}
+	#Kunena div.kblock > div.kheader,#Kunena .kblock div.kheader { background: #339ace !important; }
+	#Kunena #ktop { border-color: #339ace; }
+	#Kunena #ktop span.ktoggler { background: #339ace; }
+	#Kunena #ktab a:hover,
+	#Kunena #ktab li.Kunena-item-active a	{ background-color: #339ace; }
+	#Kunena #ktab ul.menu li.active a { background-color: #339ace; }
+	#Kunena a:link,
+	#Kunena a:visited {color: #339ace;}
+	#Kunena a:focus {outline: none;}
+	#Kunena a:hover {color: #FF0000;}	#Kunena .kheader h2,
+	#Kunena .kheader h2 a:link,
+	#Kunena .kheader h2 a:visited,
+	#Kunena .kheader h2 a:active,
+	#Kunena .kheader h2 a:focus	{color: #ffffff;}
+	#Kunena .kheader h2 a:focus {outline: none;}	#Kunena a:link,
+	#Kunena a:visited,
+	#Kunena a:active {color: #339ace;}
+	#Kunena a:focus {outline: none;}	#Kunena a:hover{color:#454b52!important}
+	#Kunena #kstatslistright a:hover{ color: #454b52 !important; }	#Kunena .krow2.krow2, #Kunena .kblock.kpathway .kforum-pathway {background-color: #f7f7f7;}
+	#Kunena .klist-markallcatsread{background-color: #f7f7f7;}
+	#Kunena td.kprofile-left{background-color: #f7f7f7;}
+	#Kunena ul#kpost-profiletop{background-color: #f7f7f7;}
+	#Kunena td.kprofile-right{background-color: #f7f7f7;}
+	#Kunena td.kprofile-bottom{background-color: #f7f7f7;}
+
+	#Kunena span.kunreadforum,
+	#Kunena span.kreadforum, #Kunena span.knotloginforum,
+	#Kunena .sticky span.kreadforum, #Kunena .sticky span.knotloginforum,
+	#Kunena .locked span.kreadforum, #Kunena .locked span.knotloginforum,
+	#Kunena .trash span.kreadforum, #Kunena .trash span.knotloginforum,
+	#Kunena .solved span.kreadforum, #Kunena .solved span.knotloginforum,
+	#Kunena .faq span.kreadforum, #Kunena .faq span.knotloginforum,
+	#Kunena .bug span.kreadforum, #Kunena .bug span.knotloginforum,
+	#Kunena .highlight span.kreadforum, #Kunena .highlight span.knotloginforum,
+	#Kunena .kwhoicon,
+	#Kunena .kstatsicon,
+	#Kunena .kmoderate-topicicons img, #Kunena .category-icon.topic-icon,
+	#Kunena span.kreadforum-sm, #Kunena span.knotloginforum-sm,
+	#Kunena .kcol-ktopicicon > a > img, #Kunena #kpost-topicicons img{ background-color: #339ace !important; }
+	#Kunena #kstatslistright a{ color: #339ace !important; }
+	#Kunena div.kannouncement div.kheader { background: #111111 !important; }	#Kunena div#kannouncement .kanndesc { background: #222222; }	#Kunena div.kfrontstats div.kheader { background: #454b52 !important; }	#Kunena div.kwhoisonline div.kheader { background: #454b52 !important; }	#Kunena #ktab a,
+	#Kunena dl.tabs dt	{ background-color: #454b52 !important; }	#Kunena #ktab ul.menu li.active a,#Kunena #ktab li#current.selected a,
+	#Kunena dl.tabs dt.open	{ background-color: #339ace !important; }	#Kunena #ktab a:hover,
+	#Kunena dl.tabs dt:hover{ background-color: #339ace !important; }	#Kunena #ktop { border-color: #339ace !important; }	#Kunena #ktab a span,
+	#Kunena dl.tabs dt	{ color: #f7f7f7 !important; }	#Kunena #ktab #current a span,
+	#Kunena dl.tabs dt.open	{ color: #ffffff !important; }	#Kunena #ktop span.ktoggler { background-color: #339ace !important; }	#Kunena .kbutton{ background-color: #339ace !important; }
+	#Kunena .kicon-button, #kbutton_addvideo1, #kbutton_addvideo2,
+	#Kunena .button, #Kunena .kbutton{ background-color: #339ace !important; }	#Kunena .kbutton:hover{ background-color: #b2afa8 !important; }
+	#Kunena .kicon-button:hover{ background-color: #b2afa8 !important; }
+	#Kunena .kcol-ktopicicon > a > img:hover,
+	#Kunena #kpost-topicicons img:hover,
+	#kbutton_addvideo1:hover, #kbutton_addvideo2:hover,
+	#Kunena .button:hover, #Kunena .kbutton:hover{ background-color: #b2afa8 !important; }	#Kunena .kbutton, #kbutton_addvideo1, #kbutton_addvideo2,
+	#Kunena .button, #Kunena .kbutton{ border-color: #339ace !important; }
+	#Kunena .kbutton[type="submit"], #Kunena td.krowmoderation input.kbutton{ border-color: #339ace !important; }	#Kunena .kbutton:hover,
+	#kbutton_addvideo1:hover, #kbutton_addvideo2:hover,
+	#Kunena .button:hover, #Kunena .kbutton:hover{ border-color: #b2afa8 !important; }
+	#Kunena .kbutton[type="submit"]:hover, #Kunena td.krowmoderation input.kbutton:hover{ border-color: #b2afa8 !important; }	#Kunena .kbutton, #Kunena .kicon-button span span,
+	#kbutton_addvideo1, #kbutton_addvideo2,
+	#Kunena .button, #Kunena .kbutton{ color: #ffffff !important; }	#Kunena .kbutton:hover, #Kunena .kicon-button span span:hover,
+	#kbutton_addvideo1:hover, #kbutton_addvideo2:hover,
+	#Kunena .button:hover, #Kunena .kbutton:hover{ color: #ffffff !important; }	#Kunena .kpagination a{ background-color: #339ace !important; }	#Kunena .kpagination a:hover,
+	#Kunena .kpagination span{ background-color: #b2afa8 !important; }	#Kunena .kpagination a{ border-color: #339ace !important; }	#Kunena .kpagination a:hover,
+	#Kunena .kpagination span{ border-color: #b2afa8 !important; }	#Kunena .kpagination a{ color: #ffffff !important; }	#Kunena .kpagination a:hover,
+	#Kunena .kpagination span{ color: #ffffff !important; }	#Kunena .klatest-avatar, #Kunena .ktopic-latest-post-avatar{ border-color: #cccccc !important; }
+	#kannouncement div.kactions{border-color: #cccccc !important;}
+	#Kunena tr.ksth th{ background-color: #cccccc !important; }
+	#Kunena div.kmsgsignature{ border-color: #cccccc !important; }
+	#Kunena select, #Kunena input, #Kunena select:focus, #Kunena select:hover{ border-color: #cccccc !important; }
+	#Kunena table#kpostmessage .ktxtarea{ border-color: #cccccc !important; }
+	#Kunena div.kblock div.kbody{ border-color: #cccccc !important; }
+	#Kunena td.kcol-mid{ border-left-color: #cccccc !important; border-bottom-color: #cccccc !important;}
+	#Kunena .kprofilebox-left{border-right-color: #cccccc !important;}
+	#Kunena .kforum-pathway { border-left-color: #cccccc !important; border-right-color: #cccccc !important;}
+	#Kunena div.kblock{border-bottom-color: #cccccc !important;}
+	#Kunena .klist-actions{border-color: #cccccc !important;}
+	#Kunena .klist-times-all {border-left-color: #cccccc !important;}
+	#Kunena .klist-jump-all {border-left-color: #cccccc !important;}
+	#Kunena .klist-pages-all {border-left-color: #cccccc !important;}
+	#Kunena td.kcol-first {border-bottom-color: #cccccc !important;}
+	#Kunena .kblock div.kheader{border-bottom-color: #cccccc !important;}
+	#Kunena td.kcol-last {border-left-color: #cccccc !important; border-bottom-color: #cccccc !important;}
+	#Kunena #kpostmessage tr.krow1 .kpostbuttonset td, 
+	#Kunena #kpostmessage tr.krow2 .kpostbuttonset td {border-bottom-color: #cccccc !important;}
+	#Kunena tr.krow1 .kpostbuttons {border-color: #cccccc !important;}
+	#Kunena #kpostmessage tr.krow1 .kpostbuttonset td.kposthint,
+	#Kunena div.clrline, #Kunena div.current, #Kunena dl.tabs dt	{border-color: #cccccc !important;}
+	#Kunena .klist-markallcatsread{border-color: #cccccc !important;}
+	#Kunena .kblock.kpathway .kforum-pathway{border-color: #cccccc !important;}
+	#Kunena fieldset{border-color: #cccccc !important;}
+	#Kunena .klist-actions-bottom{border-color: #cccccc !important;}
+	#Kunena .klist-bottom{border-color: #cccccc !important;}
+	#Kunena .klist-actions-forum{border-left-color: #cccccc !important;}
+	#Kunena td.kprofile-left{border-color: #cccccc !important;}
+	#Kunena div.kmsg-header{border-bottom-color: #cccccc !important;}
+	#Kunena td.kbuttonbar-left{border-color: #cccccc !important;}
+	#Kunena .kcontenttablespacer{border-color: #cccccc !important;}
+	#Kunena #kpost-message .postinput:hover, #Kunena #kpost-message .postinput:focus, #Kunena #kpost-message .postinput{border-color: #cccccc !important;}
+	#Kunena #kbbcode-preview{border-color: #cccccc !important;}
+	#Kunena .phone-kcatreplies{border-color: #cccccc !important;}
+	#Kunena div.kthead-child{border-color: #cccccc !important;}
+	#Kunena .kwholegend{border-color: #cccccc !important;}
+	#Kunena .kwhoonline{border-color: #cccccc !important;}
+	#Kunena tr.ksth{border-color: #cccccc !important;}
+	#Kunena span.kavatar img{border-color: #cccccc !important;}
+	#Kunena div#kforum-head{border-color: #cccccc !important;}
+	#Kunena .kreply-form, #Kunena .kreply-form .inputbox{border-color: #cccccc !important;}
+	#Kunena .kpostbuttonset{border-color: #cccccc !important;}
+	#Kunena div.kavatar-lg{border-color: #cccccc !important;}
+	#Kunena table.kblocktable, #Kunena div.kblock div.kbody{border-color: #cccccc !important;}
+	#kavatar-upload{border-color: #cccccc !important;}
+	#Kunena table, #Kunena tbody, #Kunena td, #Kunena tr{border-color: #cccccc !important;}
+	#Kunena div.kmessage-thankyou{border-color: #cccccc !important;}
+	#Kunena .phone-kcattopics.border-right{border-color: #cccccc !important;}
+		#Kunena .kicon-profile { background-image: url("/components/com_kunena/template/rnd_kazure/media/iconsets/profile/default/default.png"); }
+	#Kunena .kicon-button { background-image: url("/components/com_kunena/template/rnd_kazure/media/iconsets/buttons/default/default.png") !important; }
+	#Kunena #kbbcode-toolbar li a,#Kunena #kattachments a { background-image:url("/components/com_kunena/template/rnd_kazure/media/iconsets/editor/default/default.png"); }
+	/* End of Kunena Custom CSS */	#Kunena .kwho-admin,
+	#Kunena a.kwho-admin {
+		color: #d32828 !important;
+	}	#Kunena .kwho-globalmoderator,
+	#Kunena a.kwho-globalmoderator {
+		color: #800000 !important;
+	}	#Kunena .kwho-moderator,
+	#Kunena a.kwho-moderator {
+		color: #7171ff !important;
+	}	#Kunena .kwho-user,
+	#Kunena a.kwho-user {
+		color: #5388b4 !important;
+	}	#Kunena .kwho-guest,
+	#Kunena a.kwho-guest {
+		color: #666666 !important;
+	}	#Kunena .kwho-banned ,
+	#Kunena a.kwho-banned {
+		color: #a39d49 !important;
+	}	#Kunena .kwho-blocked,
+	#Kunena a.kwho-blocked {
+		color: #ff0000 !important;
+	}	div#Kunena span.online-yes {
+		background-color: #68b85e!important;
+	}	div#Kunena span.online-no {
+		background-color: #c23a3a!important;
+	}
+		/* End of Kunena Custom CSS */
+#rt-logo {background: url(/images/artwork/openelec_logo.png) 50% 0 no-repeat !important;}
+#rt-logo {width: 210px;height: 90px;}
+
+  </style>
+  <script async="" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/analytics.js"></script><script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/mootools-core.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/core.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/mootools-more.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/mediaboxAdv.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/default.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rokbox.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/jquery.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/jquery-noconflict.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/jquery-migrate.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/widgetkit-a16cb9ba.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/chart.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/wow.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/wow-init.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/odometer.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/odometer-init.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/bind-polyfill.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/smooth-scroll.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/gantry-totop.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/browser-engines.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rokmediaqueries_002.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rokmediaqueries.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/sidemenu.js" type="text/javascript"></script>
+  <script src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/jquery-latest.js" type="text/javascript"></script>
+  <script type="text/javascript">
+// <![CDATA[
+var kunena_toggler_close = "Collapse";
+var kunena_toggler_open = "Expand";
+// ]]>
+// <![CDATA[
+var kunena_anonymous_name = "Anonymous";
+// ]]>
+if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+		__gaTracker('create', 'UA-23007755-1', 'auto');
+		__gaTracker('send', 'pageview');
+	
+
+  </script>
+  <link rel="alternate" type="application/rss+xml" title="get the latest posts directly to your desktop" href="http://openelec.tv/forum/topics/mode-topics?format=feed">
+
+<script type="text/javascript">var tapatalk_iphone_msg = "This forum has an app for iPhone and iPod Touch! Click OK to learn more about Tapatalk.";var tapatalk_iphone_url = "http://itunes.apple.com/us/app/tapatalk-forum-app/id307880732?mt=8";var tapatalk_ipad_msg = "This forum has an app for iPad! Click OK to learn more about Tapatalk.";var tapatalk_ipad_url = "http://itunes.apple.com/us/app/tapatalk-hd-for-ipad/id481579541?mt=8";var tapatalk_kindle_msg = "This forum has an app for Kindle Fire! Click OK to learn more about Tapatalk.";var tapatalk_kindle_url = "http://www.amazon.com/gp/mas/dl/android?p=com.quoord.tapatalkpro.activity";var tapatalk_kindle_hd_msg = "This forum has an app for Kindle Fire HD! Click OK to learn more about Tapatalk.";var tapatalk_kindle_hd_url = "http://www.amazon.com/gp/mas/dl/android?p=com.quoord.tapatalkHD";var tapatalk_android_msg = "This forum has an app for Android! Click OK to learn more about Tapatalk.";var tapatalk_android_url = "market://details?id=com.quoord.tapatalkpro.activity";var tapatalk_android_hd_msg = "This forum has an app for Android HD! Click OK to learn more about Tapatalk.";var tapatalk_android_hd_url = "market://details?id=com.quoord.tapatalkHD";var tapatalkdir = "mobiquo";</script><script type="text/javascript" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/tapadetect.htm"></script></head>
+<body class="logo-type-custom demostyle-type-preset1 mainbody-overlay-light header-type-normal slideshow-type-customslideshow font-family-cygnet font-size-is-default menu-type-dropdownmenu menu-dropdownmenu-position-header-b layout-mode-responsive col12 option-com-kunena menu-forum " style="-moz-user-select: text;">
+	<div id="rt-page-surround">
+				<header id="rt-header-surround">
+						<div id="rt-drawer">
+				<div class="rt-container">
+					<div class="rt-flex-container">
+												<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+												<div id="rt-header">
+				<div class="rt-container">
+					<div class="rt-flex-container">
+						<div class="rt-grid-3 rt-alpha">
+            <div class="rt-logo-block">
+            <a href="http://openelec.tv/" id="rt-logo"></a>
+        </div>
+        
+</div>
+<div class="rt-grid-9 rt-omega">
+    	<div class="menu-block">
+		
+		<div class="clear"></div>
+	<ul class="gf-menu l1 ">
+                    <li class="item101 parent rt-dropdown-right-large rt-dropdown-right-desktop rt-dropdown-right-tablet">
+
+            <a class="item icon" href="http://openelec.tv/">
+                <span class="menu-item-wrapper">
+                                        <i class="icon-home"></i> Home                </span>
+            </a>
+
+
+                            <span class="dropdown-spacer"></span>
+                                    <div class="dropdown columns-1 " style="width:250px;">
+                                                <div class="column col1" style="width:250px;">
+                            <ul class="l2">
+                                                                                                                    <li class="item151 ">
+
+            <a class="item icon" href="http://openelec.tv/home/what-is-openelec">
+                <span class="menu-item-wrapper">
+                                        <i class="icon-book"></i> What Is OpenELEC?                </span>
+            </a>
+
+
+                    </li>
+                                                                        
+                                                                        
+                <li class="item331 ">
+
+            <a class="item icon" href="http://openelec.tv/home/messages">
+                <span class="menu-item-wrapper">
+                                        <i class="icon-inbox"></i> My Messages                </span>
+            </a>
+
+
+                    </li>
+                                                                        
+                                                                        
+                <li class="item159 ">
+
+            <a class="item icon" href="http://openelec.tv/home/develop">
+                <span class="menu-item-wrapper">
+                                        <i class="icon-wrench"></i> Develop                </span>
+            </a>
+
+
+                    </li>
+                                                                                                        </ul>
+                        </div>
+                                            </div>
+
+                                    </li>
+                            <li class="item266 ">
+
+            <a class="item icon" href="http://openelec.tv/news">
+                <span class="menu-item-wrapper">
+                                        <i class="fa-newspaper-o"></i> News                </span>
+            </a>
+
+
+                    </li>
+                            <li class="item332 ">
+
+            <a class="item icon" href="http://openelec.tv/get-openelec">
+                <span class="menu-item-wrapper">
+                                        <i class="fa-download"></i> Download                </span>
+            </a>
+
+
+                    </li>
+                            <li class="item384 ">
+
+            <a class="item icon" href="http://shop.openelec.tv/" target="_blank">
+                <span class="menu-item-wrapper">
+                                        <i class="fa-shopping-cart"></i> Shop                </span>
+            </a>
+
+
+                    </li>
+                            <li class="item157 parent rt-dropdown-right-large rt-dropdown-right-desktop rt-dropdown-right-tablet">
+
+            <a class="item icon" href="javascript:void(0);">
+                <span class="menu-item-wrapper">
+                                        <i class="fa-phone"></i> Support                </span>
+            </a>
+
+
+                            <span class="dropdown-spacer"></span>
+                                    <div class="dropdown columns-1 " style="width:270px;">
+                                                <div class="column col1" style="width:270px;">
+                            <ul class="l2">
+                                                                                                                    <li class="item277 ">
+
+            <a class="item icon" href="http://openelec.tv/forum">
+                <span class="menu-item-wrapper">
+                                        <i class="icon-wrench"></i> Forum                </span>
+            </a>
+
+
+                    </li>
+                                                                        
+                                                                        
+                <li class="item162 ">
+
+            <a class="item icon" href="http://wiki.openelec.tv/index.php/Main_Page" target="_blank">
+                <span class="menu-item-wrapper">
+                                        <i class="icon-pencil"></i> Wiki                </span>
+            </a>
+
+
+                    </li>
+                                                                        
+                                                                        
+                <li class="item161 ">
+
+            <a class="item icon" href="http://openelec.tv/support/chat">
+                <span class="menu-item-wrapper">
+                                        <i class="icon-comments"></i> Chat                </span>
+            </a>
+
+
+                    </li>
+                                                                                                        </ul>
+                        </div>
+                                            </div>
+
+                                    </li>
+                            <li class="item158 ">
+
+            <a class="item icon" href="http://openelec.tv/donate">
+                <span class="menu-item-wrapper">
+                                        <i class="icon-thumbs-up"></i> Donate                </span>
+            </a>
+
+
+                    </li>
+            </ul></div>
+	
+</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="rt-header-fixed-spacer"></div>
+									<div id="rt-slideshow">
+				<div class="rt-container">
+					<div class="rt-flex-container">
+						<div class="rt-grid-12 rt-alpha rt-omega">
+    
+</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+					</header>
+		
+		
+		
+				<section id="rt-neck-surround">
+												<div id="rt-feature">
+				<div class="rt-container">
+					<div class="rt-flex-container">
+						<div class="rt-grid-12 rt-alpha rt-omega">
+     			            <div class="rt-block nopaddingall">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		
+
+<div class="customnopaddingall">
+	<script async="" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/adsbygoogle.js"></script>
+<!-- Responsive_6 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7220815237016070" data-ad-slot="3676373144" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+	                	</div>
+                	</div>
+           </div>
+	 			            <div class="rt-block nomargingall nopaddingall">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		
+
+<div class="customnomargingall nopaddingall">
+	<p>
+<script async="" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/adsbygoogle.js"></script>
+<!-- Responsive_7 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7220815237016070" data-ad-slot="9105627945" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</p></div>
+	                	</div>
+                	</div>
+           </div>
+	
+</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+					</section>
+		
+		
+		
+		
+		<section id="rt-mainbody-surround">
+						<div class="rt-container">
+				<div id="rt-main" class="mb12">
+    <div class="rt-flex-container">
+                <div class="rt-mainbody-wrapper rt-grid-12 ">
+                            		<div class="rt-component-block rt-block">
+                <div id="rt-mainbody">
+    				<div class="component-content">
+                    	<!--[if lte IE 7]>
+<link rel="stylesheet" href="/components/com_kunena/template/rnd_kazure/css/kunena.forum.ie7.css" type="text/css" />
+<![endif]-->
+
+<div id="Kunena" class="layout">
+<div id="ktop">
+	<div id="ktopmenu">
+		<div id="ktab">
+<ul class="menu">
+<li class="item313"><a href="http://openelec.tv/forum/index"><span>Index</span></a></li><li class="item314"><a href="http://openelec.tv/forum/recent"><span>Recent Topics</span></a></li><li class="item315"><a href="http://openelec.tv/forum/newtopic"><span>New Topic</span></a></li><li class="item316"><a href="http://openelec.tv/forum/noreplies"><span>No Replies</span></a></li><li class="item317"><a href="http://openelec.tv/forum/mylatest"><span>My Topics</span></a></li><li class="item318"><a href="http://openelec.tv/forum/profile"><span>Profile</span></a></li><li class="item319"><a href="http://openelec.tv/forum/rules"><span>Rules</span></a></li><li class="item320"><a href="http://openelec.tv/forum/help"><span>Help</span></a></li><li class="item321"><a href="http://openelec.tv/forum/search"><span>Search</span></a></li></ul>
+</div>
+	</div>
+	<span class="ktoggler fltrt"><a class="ktoggler close" title="Collapse" rel="kprofilebox"></a></span>
+</div>
+<div class="kblock kpbox">
+	<div class="kcontainer" id="kprofilebox">
+		<div class="kbody">
+<table class="kprofilebox">
+	<tbody>
+		<tr class="krow1">
+						<td class="kprofilebox-left">
+				<img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/60249b7cb98fd38f4e28a5dd028b20e4.png" alt="ultraman's Avatar" style="max-width: 90px; max-height: 90px">			</td>
+						<td class="kprofileboxcnt">
+				<ul class="kprofilebox-link">
+					<li><a href="http://openelec.tv/component/uddeim/?task=inbox" rel="follow">Private Messages</a></li>														</ul>
+				<ul class="kprofilebox-welcome">
+					<li>Welcome, <strong><a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a></strong></li>
+					<li class="kms"><strong>Last Visit Date:</strong> <span title="9 minutes ago">Today</span></li>
+										<li>
+					<form action="/forum" method="post" name="login">
+						<input name="view" value="user" type="hidden">
+						<input name="task" value="logout" type="hidden">
+						<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+
+						<input name="submit" class="kbutton" value="Logout" type="submit">
+					</form>
+					</li>
+									</ul>
+			</td>
+			<!-- Module position -->
+					</tr>
+	</tbody>
+</table>
+		</div>
+	</div>
+</div>
+
+<div class="kblock kpathway">
+	<div class="kcontainer" id="pathway_tbody">
+		<div class="ksectionbody">
+			<div class="kforum-pathway">
+				<div class="path-element-first"><a href="http://openelec.tv/forum">Forum</a></div>
+								<div class="path-element"><a href="http://openelec.tv/forum/generic-forum">Generic Forum</a></div>
+								<div class="path-element"><a href="http://openelec.tv/forum/77-openelec-addons">OpenELEC Addons</a></div>
+								<div class="path-element"><a href="http://openelec.tv/forum/unofficial-openelec-addons">unofficial OpenELEC Addons</a></div>
+								<div class="path-element"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle">LAMP addon - Linux, Apache, MySQL PHP bundle</a></div>
+							</div>
+		</div>
+	</div>
+</div>
+
+
+<table class="klist-actions">
+	<tbody><tr>
+		<td class="klist-actions-goto">
+			<a name="forumtop"></a><a class="kbuttongoto" href="#forumbottom" rel="nofollow"><span class="kicon kforumbottom" title="Go to bottom"></span></a>		</td>
+		<td class="klist-actions-forum">
+					<div class="kmessage-buttons-row">
+			<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply" rel="nofollow" title="Reply to this topic.">
+	<span class="reply"><span>Reply Topic</span></span>
+</a>			<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/task-unsubscribe?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="Unsubscribe from this topic.">
+	<span class="subscribe"><span>Unsubscribe</span></span>
+</a>			<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/task-unfavorite?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="Unfavorite this topic.">
+	<span class="favorite"><span>Unfavorite</span></span>
+</a>			</div>
+						</td>
+		
+		<td class="klist-pages-all">
+			<ul class="kpagination"><li class="page">Page:</li><li><span class="pagenav">1</span></li><li><a title="2" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=15" class="pagenav">2</a></li><li><a title="3" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=30" class="pagenav">3</a></li><li><a title="4" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=45" class="pagenav">4</a></li><li><a title="5" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=60" class="pagenav">5</a></li><li>...</li><li><a title="30" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=435" class="pagenav">30</a></li></ul>		</td>
+	</tr>
+</tbody></table>
+
+<div class="kblock">
+	<div class="kheader">
+		<h2><span>TOPIC: LAMP addon - Linux, Apache, MySQL PHP bundle</span></h2>
+				<div class="kfavorite"></div>			</div>
+	<div class="kcontainer">
+		<div class="kbody"><div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="05 Jun 2014 11:28">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="109525"></a>
+			<a href="#109525" rel="nofollow">#1</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/60249b7cb98fd38f4e28a5dd028b20e4.png" alt="ultraman's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-yes">
+				<span class="online-yes">
+					<span>Online</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Platinum Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank6.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 4648</li>
+							<li class="kpost-usertyr">Thank you received: 888</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 326  			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: Maribor, Slovenia"></span>											</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		In last few weeks I helped users streppuiu and dominic7il making/using
+ Apache web server and MySQL database server. At the end I put 
+everything in a nice LAMP addon package which includes webserver with 
+php and database server. I also included phpMyAdmin tool to make 
+administration of MySQL databases.<br>
+<br>
+I could run custom web application (use by my friend) and also ownCloud open source file sync and share solution.<br>
+<br>
+Download location: <a class="bbcode_url" href="https://drive.google.com/folderview?id=0B4FdVu0-fJt6V2JwelNzdkc0YkE&amp;usp=sharing#list" target="_blank" rel="nofollow">drive.google.com/folderview?id=0B4FdVu0-fJt6V2JwelNzdkc0YkE&amp;usp=sharing#list</a><br>
+<br>
+lamp v4.3.13 - again using external apr and apr-util packages for httpd, (maybe fix for RPi and user kniazio)<br>
+<br>
+lamp v4.3.12 (enabled ftp in php): <a class="bbcode_url" href="https://drive.google.com/folderview?id=0B4FdVu0-fJt6fnlNbTUtRjcxVUJNWlFvbXZYdzZ3SGJFRzl5VDUweWVyT2U0RllxQkNkUkk&amp;usp=sharing" target="_blank" rel="nofollow">drive.google.com/folderview?id=0B4FdVu0-fJt6fnlNbTUtRjcxVUJNWlFvbXZYdzZ3SGJFRzl5VDUweWVyT2U0RllxQkNkUkk&amp;usp=sharing</a><br>
+<br>
+lamp v4.3.11 (packages rework, libressl): <a class="bbcode_url" href="https://drive.google.com/folderview?id=0B4FdVu0-fJt6fkFpdncxWDBWSWdZaEFJYjlvV3NFU3djZ3g1VVpRVnc1VFltOUdCa3hSLXc&amp;usp=sharing" target="_blank" rel="nofollow">drive.google.com/folderview?id=0B4FdVu0-fJt6fkFpdncxWDBWSWdZaEFJYjlvV3NFU3djZ3g1VVpRVnc1VFltOUdCa3hSLXc&amp;usp=sharing</a><br>
+<br>
+lamp v4.3.10: <a class="bbcode_url" href="https://drive.google.com/folderview?id=0B4FdVu0-fJt6fmN6VFJaX1lsSEVsOHFkZHJzTFo0eG5aZXdiUlhkTW1oRUlfYVAyS1EyNjg&amp;usp=sharing" target="_blank" rel="nofollow">drive.google.com/folderview?id=0B4FdVu0-fJt6fmN6VFJaX1lsSEVsOHFkZHJzTFo0eG5aZXdiUlhkTW1oRUlfYVAyS1EyNjg&amp;usp=sharing</a><br>
+<br>
+for openelec 5.0.4 and up lamp v4.3.9 and up is needed<br>
+<a class="bbcode_url" href="https://drive.google.com/folderview?id=0B4FdVu0-fJt6fnowdkVjd0RvODdBUDZvbTNENzh5d19ZRmp2UVNBWkFuZGp0TDl0azFUYTQ&amp;usp=sharing" target="_blank" rel="nofollow">drive.google.com/folderview?id=0B4FdVu0-fJt6fnowdkVjd0RvODdBUDZvbTNENzh5d19ZRmp2UVNBWkFuZGp0TDl0azFUYTQ&amp;usp=sharing</a><br>
+(old version <a class="bbcode_url" href="https://drive.google.com/folderview?id=0B4FdVu0-fJt6fkdoSVRLemtXZXMwb29qUEt0OWRVcjJyZ0h3SlNITjZDVklkYTVZX04tWEE&amp;usp=sharing" target="_blank" rel="nofollow">drive.google.com/folderview?id=0B4FdVu0-fJt6fkdoSVRLemtXZXMwb29qUEt0OWRVcjJyZ0h3SlNITjZDVklkYTVZX04tWEE&amp;usp=sharing</a>)<br>
+<br>
+for older openelec versions:<br>
+<a class="bbcode_url" href="https://drive.google.com/folderview?id=0B4FdVu0-fJt6QUxBTllIRlVsTjA&amp;usp=sharing&amp;tid=0B4FdVu0-fJt6V2JwelNzdkc0YkE" target="_blank" rel="nofollow">drive.google.com/folderview?id=0B4FdVu0-fJt6QUxBTllIRlVsTjA&amp;usp=sharing&amp;tid=0B4FdVu0-fJt6V2JwelNzdkc0YkE</a><br>
+<a class="bbcode_url" href="http://mirror1.openelec.tv/lamp/" target="_blank" rel="nofollow">mirror1.openelec.tv/lamp/</a><br>
+<br>
+Install manually from xbmc.<br>
+<br>
+Controlling with systemctl:<div class="highlight"><pre xml:="">systemctl start/stop/restart lamp
+systemctl start/stop/restart httpd
+systemctl start/stop/restart mysqld
+
+systemctl start/stop/restart lamp.service
+systemctl start/stop/restart httpd.service
+systemctl start/stop/restart mysqld.service
+
+systemctl start/stop/restart service.web.lamp.service</pre></div>or with traditional shell scripts:<div class="highlight"><pre xml:="">lamp.start
+lamp.stop 
+
+httpd.start 
+httpd.stop
+
+mysqld.start 
+mysqld.stop</pre></div><br>
+Some required data:<br>
+<br>
+mysql server<br>
+username: root<br>
+password: 123<br>
+<br>
+http port: 4080<br>
+https port: 443<br>
+web server root folder<br>
+/storage/.kodi/userdata/addon_data/service.web.lamp/www/htdocs/<br>
+<br>
+http://OE_BOX_IP:4080/tests.php<br>
+http://OE_BOX_IP:4080/phpinfo.php<br>
+http://OE_BOX_IP:4080/db_test.php<br>
+http://OE_BOX_IP:4080/exif_test.php<br>
+http://OE_BOX_IP:4080/mail_test.php<br>
+http://OE_BOX_IP:4080/phpMyAdmin/index.php<br>
+<br>
+to install owncloud<br>
+<a class="bbcode_url" href="https://owncloud.org/install/#instructions-server" target="_blank" rel="nofollow">owncloud.org/install/#instructions-server</a><br>
+unpack owncloud-.tar.bz2 to web root folder<br>
+tar xjf owncloud-8.0.4.tar.bz2 -C /storage/.kodi/userdata/addon_data/service.web.lamp/www/htdocs/<br>
+<br>
+and open in web browser<br>
+http://OE_BOX_IP:4080/owncloud/index.php<br>
+<br>
+fill with<br>
+username: admin<br>
+password: pass<br>
+data  folder: leave default /storage/.kodi/userdata/addon_data/service.web.lamp/www/htdocs/owncloud/data<br>
+mysql username: root<br>
+mysql password: 123<br>
+mysql name: owncloud<br>
+mysql host: localhost<br>
+<br>
+To install ocDownloader<br>
+You must have ownCloud installed (ocDownloader is in addition to ownCloud)<br>
+download from <a class="bbcode_url" href="https://github.com/DjazzLab/ocdownloader" target="_blank" rel="nofollow">github.com/DjazzLab/ocdownloader</a><div class="kmsgtext-quote">wget -O ocDownloader.zip <a class="bbcode_url" href="https://github.com/DjazzLab/ocdownloader/archive/master.zip" target="_blank" rel="nofollow">github.com/DjazzLab/ocdownloader/archive/master.zip</a><br>
+unzip ocDownloader.zip -d /storage/.kodi/userdata/addon_data/service.web.lamp/www/htdocs/owncloud/apps<br>
+mv 
+/storage/.kodi/userdata/addon_data/service.web.lamp/www/htdocs/owncloud/apps/ocdownloader-master
+ 
+/storage/.kodi/userdata/addon_data/service.web.lamp/www/htdocs/owncloud/apps/ocdownloader<br>
+systemctl restart httpd</div>Enable it in ownCloud applications<br>
+<br>
+To setup sending mail function with php mail() function over msmtp 
+program you need to edit config file msmtprc with smtp server data. 
+After that restart httpd and it should work.<br>
+<a href="https://wiki.archlinux.org/index.php/msmtp" class="bbcode_url" rel="nofollow" target="_blank">msmtprc  sample</a><br>
+<br>
+If anyone has some special request/interest let me know and I will add some more functionality (like php extensions).<br>
+<br>
+Sources: <a class="bbcode_url" href="https://github.com/vpeter4/OpenELEC.tv/tree/lamp" target="_blank" rel="nofollow">github.com/vpeter4/OpenELEC.tv/tree/lamp</a><br>
+<br>
+To disable mysql service permanently and use only web server<div class="highlight"><pre xml:="">systemctl stop mysqld.service
+systemctl disable mysqld.service</pre></div>or to disable web server and use only mysql server<div class="highlight"><pre xml:="">systemctl stop httpd.service
+systemctl disable httpd.service</pre></div>	</div>
+</div>
+<div>
+<div id="kreply109525_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="109525" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="ultraman" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+		<div class="kmsgsignature">
+		ultraman == vpeter<br>
+<a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle" class="bbcode_url" rel="nofollow" target="_blank">LAMP addon - Linux, Apache, MySQL PHP bundle</a><br>
+Sundtek and HDHomeRun DVB driver addons	</div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+		<span class="kmessage-editmarkup" title="21 Jun 2015 16:24">
+		Last Edit: 1 year 8 months ago by <a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>.			</span>
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/109525" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply109525" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109525" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109525" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109525?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>		<a class="kicon-button kbuttonmod btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/edit/109525" rel="nofollow" title="Edit this message.">
+	<span class="edit"><span>Edit</span></span>
+</a>												</div>
+</div>
+<div class="kmessage-thankyou">
+The following user(s) said Thank You: <a class="kwho-user" href="http://openelec.tv/forum/profile/1321-miami-t" title="View Miami_T's Profile" rel="nofollow">Miami_T</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/5009-firsttris" title="View firsttris's Profile" rel="nofollow">firsttris</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/8997-toniq" title="View ToniQ's Profile" rel="nofollow">ToniQ</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow">dominic7il</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/28998-jimmysmith" title="View JimmySmith's Profile" rel="nofollow">JimmySmith</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/31261-shark" title="View Shark's Profile" rel="nofollow">Shark</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/32806-sd26" title="View sd26's Profile" rel="nofollow">sd26</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/39373-camyoung11" title="View camyoung11's Profile" rel="nofollow">camyoung11</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/40707-wire2111" title="View wire2111's Profile" rel="nofollow">wire2111</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/42087-snakeyman66" title="View snakeyman66's Profile" rel="nofollow">snakeyman66</a> and this user have 1 others thankyou</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<div class="kunena_msg_1">		<div class="moduletable">
+						
+
+<div class="custom">
+	<p>
+<script async="" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/adsbygoogle.js"></script>
+<!-- Responsive_Kunena_1 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7220815237016070" data-ad-slot="1582361144" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</p></div>
+		</div>
+	</div><!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="05 Jun 2014 11:28">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="109526"></a>
+			<a href="#109526" rel="nofollow">#2</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/60249b7cb98fd38f4e28a5dd028b20e4.png" alt="ultraman's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-yes">
+				<span class="online-yes">
+					<span>Online</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Platinum Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank6.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 4648</li>
+							<li class="kpost-usertyr">Thank you received: 888</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 326  			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: Maribor, Slovenia"></span>											</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		Ti use mysql server for Kodi those commands must be run in ssh console<div class="highlight"><pre xml:="">mysql -u root -p123
+create user 'kodi' identified by 'kodi';
+grant all on *.* to 'kodi';
+drop user ''@'localhost';
+drop user ''@'**HOSTNAME**';   (for me this was ''@'maintvrpi')</pre></div><br>
+Thanks to user wire2111 - more info about user issues <a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=345#147059" class="bbcode_url" rel="nofollow" target="_blank">here</a>.	</div>
+</div>
+<div>
+<div id="kreply109526_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="109526" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="ultraman" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+		<div class="kmsgsignature">
+		ultraman == vpeter<br>
+<a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle" class="bbcode_url" rel="nofollow" target="_blank">LAMP addon - Linux, Apache, MySQL PHP bundle</a><br>
+Sundtek and HDHomeRun DVB driver addons	</div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+		<span class="kmessage-editmarkup" title="08 Jan 2016 13:57">
+		Last Edit: 1 year 1 month ago by <a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>.			</span>
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/109526" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply109526" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109526" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109526" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109526?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>		<a class="kicon-button kbuttonmod btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/edit/109526" rel="nofollow" title="Edit this message.">
+	<span class="edit"><span>Edit</span></span>
+</a>												</div>
+</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="05 Jun 2014 12:23">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="109532"></a>
+			<a href="#109532" rel="nofollow">#3</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow">dominic7il</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/6a8fee9bbc7dc541295ee0e360b9a505.jpg" alt="dominic7il's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-no">
+				<span class="online-no">
+					<span>Offline</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Expert Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank4.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 205</li>
+							<li class="kpost-usertyr">Thank you received: 37</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 9  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmadown?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-minus" alt="Karma-" border="0" title="Smite"> </span></a>  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmaup?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-plus" alt="Karma+" border="0" title="Applaud"> </span></a>			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: UK"></span>			<a href="https://www.dcrdev.com/" target="_blank"><span class="kicon-profile kicon-profile-website" title="Web site: dcrdev.com"></span></a>			<a href="http://openelec.tv/component/uddeim/?task=new&amp;recip=20408" title="Click here to send a private message to this user."><span class="kicon-profile kicon-profile-pm" alt="Click here to send a private message to this user."></span></a>					</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		Well done ultraman! Brilliant job - I'm going to be migrating my web 
+services and XBMC database over to this addon implementation this 
+weekend.	</div>
+</div>
+<div>
+<div id="kreply109532_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="109532" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="dominic7il" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/109532" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply109532" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109532" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109532" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109532?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>														</div>
+</div>
+<div class="kmessage-thankyou">
+The following user(s) said Thank You: <a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>, <a class="kwho-user" href="http://openelec.tv/forum/profile/1321-miami-t" title="View Miami_T's Profile" rel="nofollow">Miami_T</a> </div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="05 Jun 2014 18:09">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="109570"></a>
+			<a href="#109570" rel="nofollow">#4</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/16312-pbh" title="View pbh's Profile" rel="nofollow">pbh</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/16312-pbh" title="View pbh's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/1b78d9dce507f0690f715d4134356aee.jpg" alt="pbh's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-no">
+				<span class="online-no">
+					<span>Offline</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Fresh Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank1.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 4</li>
+										<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 0  <a href="http://openelec.tv/forum/profile/16312-pbh/task-karmadown?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-minus" alt="Karma-" border="0" title="Smite"> </span></a>  <a href="http://openelec.tv/forum/profile/16312-pbh/task-karmaup?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-plus" alt="Karma+" border="0" title="Applaud"> </span></a>			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-unknown" title="Gender: Unknown"></span>												<a href="http://openelec.tv/component/uddeim/?task=new&amp;recip=16312" title="Click here to send a private message to this user."><span class="kicon-profile kicon-profile-pm" alt="Click here to send a private message to this user."></span></a>					</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		Sounds great, especially a RPi version. I currently have ownCloud on a
+ separate Pi, but bringing it all together would be very useful.	</div>
+</div>
+<div>
+<div id="kreply109570_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="109570" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="pbh" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/109570" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply109570" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109570" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109570" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109570?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>														</div>
+</div>
+<div class="kpost-thankyou">
+	<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/109570/task-thankyou/userid-1155?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="I want to thank you for this message.">
+	<span class="thankyou"><span>Thank You</span></span>
+</a></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="07 Jun 2014 11:01">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="109727"></a>
+			<a href="#109727" rel="nofollow">#5</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/60249b7cb98fd38f4e28a5dd028b20e4.png" alt="ultraman's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-yes">
+				<span class="online-yes">
+					<span>Online</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Platinum Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank6.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 4648</li>
+							<li class="kpost-usertyr">Thank you received: 888</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 326  			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: Maribor, Slovenia"></span>											</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		First post updated with download link and few instructions. Feedback welcome. Suggestions also.	</div>
+</div>
+<div>
+<div id="kreply109727_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="109727" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="ultraman" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+		<div class="kmsgsignature">
+		ultraman == vpeter<br>
+<a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle" class="bbcode_url" rel="nofollow" target="_blank">LAMP addon - Linux, Apache, MySQL PHP bundle</a><br>
+Sundtek and HDHomeRun DVB driver addons	</div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/109727" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply109727" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109727" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109727" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109727?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>		<a class="kicon-button kbuttonmod btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/edit/109727" rel="nofollow" title="Edit this message.">
+	<span class="edit"><span>Edit</span></span>
+</a>												</div>
+</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="07 Jun 2014 21:18">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="109780"></a>
+			<a href="#109780" rel="nofollow">#6</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/6090-e-n" title="View e n's Profile" rel="nofollow">e n</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/6090-e-n" title="View e n's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/69eb725a33547dd8e21714a7cc12e75f.jpg" alt="e n's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-no">
+				<span class="online-no">
+					<span>Offline</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Expert Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank4.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 442</li>
+							<li class="kpost-usertyr">Thank you received: 45</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 0  <a href="http://openelec.tv/forum/profile/6090-e-n/task-karmadown?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-minus" alt="Karma-" border="0" title="Smite"> </span></a>  <a href="http://openelec.tv/forum/profile/6090-e-n/task-karmaup?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-plus" alt="Karma+" border="0" title="Applaud"> </span></a>			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: Amsterdam"></span>						<a href="http://openelec.tv/component/uddeim/?task=new&amp;recip=6090" title="Click here to send a private message to this user."><span class="kicon-profile kicon-profile-pm" alt="Click here to send a private message to this user."></span></a>					</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		<b>ultraman wrote:</b>
+<div class="kmsgtext-quote">First post updated with download link and few instructions. Feedback welcome. Suggestions also.</div><br>
+looks promising well done sir	</div>
+</div>
+<div>
+<div id="kreply109780_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="109780" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="e n" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/109780" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply109780" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109780" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109780" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109780?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>														</div>
+</div>
+<div class="kpost-thankyou">
+	<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/109780/task-thankyou/userid-1155?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="I want to thank you for this message.">
+	<span class="thankyou"><span>Thank You</span></span>
+</a></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="08 Jun 2014 02:32">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="109796"></a>
+			<a href="#109796" rel="nofollow">#7</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/16312-pbh" title="View pbh's Profile" rel="nofollow">pbh</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/16312-pbh" title="View pbh's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/1b78d9dce507f0690f715d4134356aee.jpg" alt="pbh's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-no">
+				<span class="online-no">
+					<span>Offline</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Fresh Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank1.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 4</li>
+										<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 0  <a href="http://openelec.tv/forum/profile/16312-pbh/task-karmadown?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-minus" alt="Karma-" border="0" title="Smite"> </span></a>  <a href="http://openelec.tv/forum/profile/16312-pbh/task-karmaup?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-plus" alt="Karma+" border="0" title="Applaud"> </span></a>			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-unknown" title="Gender: Unknown"></span>												<a href="http://openelec.tv/component/uddeim/?task=new&amp;recip=16312" title="Click here to send a private message to this user."><span class="kicon-profile kicon-profile-pm" alt="Click here to send a private message to this user."></span></a>					</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		It's close, but I am not able to get it running on my RPi. Any suggestions? Logs you want me to provide?<br>
+<div class="highlight"><pre xml:="">##############################################
+# OpenELEC - The living room PC for everyone #
+# ...... visit http://www.openelec.tv ...... #
+##############################################
+
+OpenELEC (official) Version: 4.0.4
+OpenELEC:~ # systemctl start lamp
+Job for service.web.lamp.service failed. See 'systemctl status service.web.lamp.service' and 'journalctl -xn' for details.
+OpenELEC:~ # systemctl status service.web.lamp.service
+● service.web.lamp.service - LAMP (Linux Apache MySQL PHP) software bundle
+   Loaded: loaded (/storage/.xbmc/addons/service.web.lamp/system.d/service.web.lamp.service; enabled)
+   Active: failed (Result: exit-code) since Sat 2014-06-07 17:18:50 PDT; 14s ago
+ Main PID: 1178 (code=exited, status=1/FAILURE)
+
+Jun 07 17:18:50 OpenELEC sh[1178]: Job for httpd.service failed. See 'systemctl status httpd.service' and 'journalctl -xn...etails.
+Jun 07 17:18:50 OpenELEC systemd[1]: service.web.lamp.service: main process exited, code=exited, status=1/FAILURE
+Jun 07 17:18:50 OpenELEC systemd[1]: Failed to start LAMP (Linux Apache MySQL PHP) software bundle.
+Jun 07 17:18:50 OpenELEC systemd[1]: Unit service.web.lamp.service entered failed state.
+Hint: Some lines were ellipsized, use -l to show in full.
+OpenELEC:~ # systemctl start httpd
+Job for httpd.service failed. See 'systemctl status httpd.service' and 'journalctl -xn' for details.
+OpenELEC:~ # systemctl status httpd.service
+● httpd.service - Apache Httpd Server
+   Loaded: loaded (/storage/.xbmc/addons/service.web.lamp/system.d/httpd.service; enabled)
+   Active: activating (start) since Sat 2014-06-07 17:20:41 PDT; 6s ago
+  Process: 1220 ExecStart=/bin/sh -c exec sh /storage/.xbmc/addons/service.web.lamp/bin/httpd.start (code=exited, status=0/SUCCESS)
+   CGroup: /system.slice/httpd.service
+           ├─1234 /storage/.xbmc/addons/service.web.lamp/bin/httpd -d /storage/.xbmc/userdata/addon_data/service.web.lamp/srvroo...
+           ├─1235 /storage/.xbmc/addons/service.web.lamp/bin/httpd -d /storage/.xbmc/userdata/addon_data/service.web.lamp/srvroo...
+           ├─1236 /storage/.xbmc/addons/service.web.lamp/bin/httpd -d /storage/.xbmc/userdata/addon_data/service.web.lamp/srvroo...
+           ├─1237 /storage/.xbmc/addons/service.web.lamp/bin/httpd -d /storage/.xbmc/userdata/addon_data/service.web.lamp/srvroo...
+           ├─1238 /storage/.xbmc/addons/service.web.lamp/bin/httpd -d /storage/.xbmc/userdata/addon_data/service.web.lamp/srvroo...
+           └─1239 /storage/.xbmc/addons/service.web.lamp/bin/httpd -d /storage/.xbmc/userdata/addon_data/service.web.lamp/srvroo...
+
+Jun 07 17:20:41 OpenELEC systemd[1]: Starting Apache Httpd Server...
+Jun 07 17:20:43 OpenELEC systemd[1]: PID file /var/logs/httpd.pid not readable (yet?) after start.</pre></div><br>
+Some additional error information from trying to start httpd:<div class="highlight"><pre xml:="">-- Logs begin at Sat 2014-06-07 21:08:04 PDT, end at Sat 2014-06-07 21:12:57 PDT. --
+Jun 07 21:12:56 OpenELEC sh[15320]: chmod: /storage/.xbmc/addons/service.web.lamp/bin/replace: Read-only file system
+Jun 07 21:12:56 OpenELEC sh[15320]: chmod: /storage/.xbmc/addons/service.web.lamp/bin/resolve_stack_dump: Read-only file system
+Jun 07 21:12:56 OpenELEC sh[15320]: chmod: /storage/.xbmc/addons/service.web.lamp/bin/resolveip: Read-only file system
+Jun 07 21:12:56 OpenELEC sh[15320]: chmod: /storage/.xbmc/addons/service.web.lamp/bin/rotatelogs: Read-only file system
+Jun 07 21:12:56 OpenELEC sh[15320]: (30)Read-only file system: AH00086: httpd: could not open error log file /storage/.xbmc/userda
+ta/addon_data/service.web.lamp/httpd.log.
+Jun 07 21:12:57 OpenELEC sh[15320]: (30)Read-only file system: AH00091: httpd: could not open error log file /storage/.xbmc/userda
+ta/addon_data/service.web.lamp/srvroot/logs/error_log.
+Jun 07 21:12:57 OpenELEC sh[15320]: AH00015: Unable to open logs
+Jun 07 21:12:57 OpenELEC systemd[1]: [[1;39mhttpd.service: control process exited, code=exited status=1[[0m
+Jun 07 21:12:57 OpenELEC systemd[1]: [[1;31mFailed to start Apache Httpd Server.[[0m
+Jun 07 21:12:57 OpenELEC systemd[1]: [[1;39mUnit httpd.service entered failed state.[[0m
+</pre></div>	</div>
+</div>
+<div>
+<div id="kreply109796_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="109796" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="pbh" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+		<span class="kmessage-editmarkup" title="08 Jun 2014 06:16">
+		Last Edit: 2 years 8 months ago by <a class="kwho-user" href="http://openelec.tv/forum/profile/16312-pbh" title="View pbh's Profile" rel="nofollow">pbh</a>.		Reason: Added more log info.	</span>
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/109796" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply109796" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109796" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109796" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109796?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>														</div>
+</div>
+<div class="kpost-thankyou">
+	<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/109796/task-thankyou/userid-1155?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="I want to thank you for this message.">
+	<span class="thankyou"><span>Thank You</span></span>
+</a></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="08 Jun 2014 09:48">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="109810"></a>
+			<a href="#109810" rel="nofollow">#8</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/60249b7cb98fd38f4e28a5dd028b20e4.png" alt="ultraman's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-yes">
+				<span class="online-yes">
+					<span>Online</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Platinum Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank6.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 4648</li>
+							<li class="kpost-usertyr">Thank you received: 888</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 326  			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: Maribor, Slovenia"></span>											</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		<b>pbh wrote:</b>
+<div class="kmsgtext-quote"><div class="highlight"><pre xml:="">chmod: /storage/.xbmc/addons/service.web.lamp/bin/replace: Read-only file system</pre></div><div class="highlight"><pre xml:="">Read-only file system: AH00086: httpd: could not open error log file /storage/.xbmc/userdata/addon_data/service.web.lamp/httpd.log</pre></div></div>Something wrong with your SD card? Corrupted? Filesystem can't be readonly!	</div>
+</div>
+<div>
+<div id="kreply109810_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="109810" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="ultraman" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+		<div class="kmsgsignature">
+		ultraman == vpeter<br>
+<a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle" class="bbcode_url" rel="nofollow" target="_blank">LAMP addon - Linux, Apache, MySQL PHP bundle</a><br>
+Sundtek and HDHomeRun DVB driver addons	</div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/109810" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply109810" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109810" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109810" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109810?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>		<a class="kicon-button kbuttonmod btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/edit/109810" rel="nofollow" title="Edit this message.">
+	<span class="edit"><span>Edit</span></span>
+</a>												</div>
+</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="10 Jun 2014 01:57">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="109986"></a>
+			<a href="#109986" rel="nofollow">#9</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow">dominic7il</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/6a8fee9bbc7dc541295ee0e360b9a505.jpg" alt="dominic7il's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-no">
+				<span class="online-no">
+					<span>Offline</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Expert Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank4.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 205</li>
+							<li class="kpost-usertyr">Thank you received: 37</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 9  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmadown?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-minus" alt="Karma-" border="0" title="Smite"> </span></a>  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmaup?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-plus" alt="Karma+" border="0" title="Applaud"> </span></a>			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: UK"></span>			<a href="https://www.dcrdev.com/" target="_blank"><span class="kicon-profile kicon-profile-website" title="Web site: dcrdev.com"></span></a>			<a href="http://openelec.tv/component/uddeim/?task=new&amp;recip=20408" title="Click here to send a private message to this user."><span class="kicon-profile kicon-profile-pm" alt="Click here to send a private message to this user."></span></a>					</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		Finally managed to migrate my stuff over to this addon - all going well.<br>
+<br>
+Though you might want to remove the below from httpd.conf:<div class="highlight"><pre xml:="">ServerName openelec:82</pre></div><br>
+Or comment it out as some scripts that rely on redirect will pull you to
+ port 82. There's no real benefit to explicitly defining it though or 
+you could just bind to localhost:4080.<br>
+<br>
+On the agenda for this evening:
+<ul class="bbcode_list" style="list-style-type:circle">
+<li>I plan on fixing the broken icons when using FancyDirectoryListings directive in Apache.</li>
+<li>Also going to try and get SSL working as I use it quite a lot to encrypt traffic between some of my web services.</li>
+</ul>
+	</div>
+</div>
+<div>
+<div id="kreply109986_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="109986" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="dominic7il" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+		<span class="kmessage-editmarkup" title="10 Jun 2014 08:55">
+		Last Edit: 2 years 8 months ago by <a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow">dominic7il</a>.			</span>
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/109986" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply109986" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109986" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109986" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/109986?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>														</div>
+</div>
+<div class="kpost-thankyou">
+	<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/109986/task-thankyou/userid-1155?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="I want to thank you for this message.">
+	<span class="thankyou"><span>Thank You</span></span>
+</a></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="10 Jun 2014 09:02">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="110001"></a>
+			<a href="#110001" rel="nofollow">#10</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/60249b7cb98fd38f4e28a5dd028b20e4.png" alt="ultraman's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-yes">
+				<span class="online-yes">
+					<span>Online</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Platinum Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank6.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 4648</li>
+							<li class="kpost-usertyr">Thank you received: 888</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 326  			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: Maribor, Slovenia"></span>											</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		Thanks dominic7il. This was my fault because I changed listening port from 82 to 4080 but forgot to change this line to.<br>
+<br>
+New version uploaded.	</div>
+</div>
+<div>
+<div id="kreply110001_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="110001" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="ultraman" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+		<div class="kmsgsignature">
+		ultraman == vpeter<br>
+<a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle" class="bbcode_url" rel="nofollow" target="_blank">LAMP addon - Linux, Apache, MySQL PHP bundle</a><br>
+Sundtek and HDHomeRun DVB driver addons	</div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/110001" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply110001" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110001" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110001" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110001?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>		<a class="kicon-button kbuttonmod btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/edit/110001" rel="nofollow" title="Edit this message.">
+	<span class="edit"><span>Edit</span></span>
+</a>												</div>
+</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="10 Jun 2014 23:28">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="110049"></a>
+			<a href="#110049" rel="nofollow">#11</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow">dominic7il</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/6a8fee9bbc7dc541295ee0e360b9a505.jpg" alt="dominic7il's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-no">
+				<span class="online-no">
+					<span>Offline</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Expert Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank4.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 205</li>
+							<li class="kpost-usertyr">Thank you received: 37</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 9  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmadown?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-minus" alt="Karma-" border="0" title="Smite"> </span></a>  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmaup?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-plus" alt="Karma+" border="0" title="Applaud"> </span></a>			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: UK"></span>			<a href="https://www.dcrdev.com/" target="_blank"><span class="kicon-profile kicon-profile-website" title="Web site: dcrdev.com"></span></a>			<a href="http://openelec.tv/component/uddeim/?task=new&amp;recip=20408" title="Click here to send a private message to this user."><span class="kicon-profile kicon-profile-pm" alt="Click here to send a private message to this user."></span></a>					</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		Right, I'm largely finished with the migration only thing left is SSL.
+ I've come accross a few issues along the way and plan to do a write up 
+on those later.<br>
+<br>
+So as for SSL... I just can't figure it out. I've successfully got it 
+running but the trouble is when SSL is enabled I can only access apache 
+over SSL i.e not over http port 80. The httpd access logs show the 
+requests being made but I can't actually reach the content through http -
+ additionally I can confirm that apache is definately bound to both port
+ 443 and 80.<br>
+<br>
+Here is my httpd config:<br>
+<a class="bbcode_url" href="http://pastebin.com/kG2dPjJ2" target="_blank" rel="nofollow">pastebin.com/kG2dPjJ2</a><br>
+<br>
+and Here is the httpd-ssl config being included:<br>
+<a class="bbcode_url" href="http://pastebin.com/thqvjgGJ" target="_blank" rel="nofollow">pastebin.com/thqvjgGJ</a><br>
+<br>
+Makes no sense to me as I've done a comparison between these and another working lamp set up and there aren't any differences.<br>
+<br>
+Anyone care to jump in.	</div>
+</div>
+<div>
+<div id="kreply110049_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="110049" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="dominic7il" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/110049" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply110049" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110049" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110049" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110049?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>														</div>
+</div>
+<div class="kpost-thankyou">
+	<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/110049/task-thankyou/userid-1155?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="I want to thank you for this message.">
+	<span class="thankyou"><span>Thank You</span></span>
+</a></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="11 Jun 2014 08:56">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="110071"></a>
+			<a href="#110071" rel="nofollow">#12</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/60249b7cb98fd38f4e28a5dd028b20e4.png" alt="ultraman's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-yes">
+				<span class="online-yes">
+					<span>Online</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Platinum Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank6.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 4648</li>
+							<li class="kpost-usertyr">Thank you received: 888</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 326  			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: Maribor, Slovenia"></span>											</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		<b>dominic7il wrote:</b>
+<div class="kmsgtext-quote">the trouble is when SSL is enabled I can only access apache over SSL i.e not over http</div>And I though I was doing something wrong - the same thing happen to me too  <img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/wink.png" alt=";)" title=";)" class="bbcode_smiley" width="20" height="20"><br>
+I will try to use default config files and tweak them so both would 
+work. But if someone already has a solution don't hesitate to informa us
+  <img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/grin.png" alt=":lol:" title=":lol:" class="bbcode_smiley" width="19" height="19">	</div>
+</div>
+<div>
+<div id="kreply110071_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="110071" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="ultraman" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+		<div class="kmsgsignature">
+		ultraman == vpeter<br>
+<a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle" class="bbcode_url" rel="nofollow" target="_blank">LAMP addon - Linux, Apache, MySQL PHP bundle</a><br>
+Sundtek and HDHomeRun DVB driver addons	</div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/110071" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply110071" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110071" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110071" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110071?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>		<a class="kicon-button kbuttonmod btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/edit/110071" rel="nofollow" title="Edit this message.">
+	<span class="edit"><span>Edit</span></span>
+</a>												</div>
+</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="11 Jun 2014 22:48">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="110122"></a>
+			<a href="#110122" rel="nofollow">#13</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow">dominic7il</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/6a8fee9bbc7dc541295ee0e360b9a505.jpg" alt="dominic7il's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-no">
+				<span class="online-no">
+					<span>Offline</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Expert Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank4.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 205</li>
+							<li class="kpost-usertyr">Thank you received: 37</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 9  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmadown?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-minus" alt="Karma-" border="0" title="Smite"> </span></a>  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmaup?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-plus" alt="Karma+" border="0" title="Applaud"> </span></a>			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: UK"></span>			<a href="https://www.dcrdev.com/" target="_blank"><span class="kicon-profile kicon-profile-website" title="Web site: dcrdev.com"></span></a>			<a href="http://openelec.tv/component/uddeim/?task=new&amp;recip=20408" title="Click here to send a private message to this user."><span class="kicon-profile kicon-profile-pm" alt="Click here to send a private message to this user."></span></a>					</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		<b>ultraman wrote:</b>
+<div class="kmsgtext-quote"><b>dominic7il wrote:</b>
+<div class="kmsgtext-quote">the trouble is when SSL is enabled I can only access apache over SSL i.e not over http</div>And I though I was doing something wrong - the same thing happen to me too  <img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/wink.png" alt=";)" title=";)" class="bbcode_smiley" width="20" height="20"><br>
+I will try to use default config files and tweak them so both would 
+work. But if someone already has a solution don't hesitate to informa us
+  <img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/grin.png" alt=":lol:" title=":lol:" class="bbcode_smiley" width="19" height="19"></div>Thanks ultraman - I'm continuing to try and get it to work myself but pretty much pulling my hair out. Things I've tried so far:
+<ul class="bbcode_list" style="list-style-type:circle">
+<li>Putting an IF clause around "Listen 443" to check whether SSL is enabled or not.</li>
+<li>Configuring a separate virtual host for port 80</li>
+<li>Placing 443 and 80 within the same directive.</li>
+<li>Setting a different path for the log files on the 443 virtual host, 
+just in case they were fighting over them and causing httpd to stall.</li>
+</ul>
+Nothing seems to be working on that front  <img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/sad.png" alt=":(" title=":(" class="bbcode_smiley" width="20" height="20"><br>
+<br>
+Anyway as promised earlier here's a writeup of things I've changed/fixed in regards to apache:<br>
+<br>
+In httpd.conf add the following to the list of modules, otherwise basic authentication will not work:<div class="highlight"><pre xml:="">LoadModule authn_core_module mod_authn_core.so</pre></div>As a result of the above change you'll also need to change:<div class="highlight"><pre xml:="">AllowOverride None</pre></div>To:<div class="highlight"><pre xml:="">AllowOverride All</pre></div>This will stop issues with http error handling when using basic authentication.<br>
+<br>
+Also if you prefer full Apache directory listing, un-comment the below in httpd.conf:<div class="highlight"><pre xml:="">Include /storage/.xbmc/userdata/addon_data/service.web.lamp/srvroot/conf/extra/httpd-autoindex.conf</pre></div><br>
+If you'd like to show a basic server signature on your directory listings, add the below to httpd.conf:<div class="highlight"><pre xml:="">ServerTokens Full
+ServerSignature On</pre></div><br>
+To add automatic mime type based descriptions your your directory 
+listings as well as putting folders on top, add the below to httpd.conf:<div class="highlight"><pre xml:="">IndexOptions IgnoreCase FancyIndexing FoldersFirst
+AddDescription "MPEG Layer 3 Format" .mp3
+AddDescription "GZIP compressed TAR archive" .tgz .tar.gz
+AddDescription "GZIP compressed archive" .Z .z .gz .zip
+AddDescription "RAR compressed archive" .rar
+AddDescription "TAR compressed archive" .tar
+AddDescription "ZIP compressed archive" .zip
+AddDescription "Windows executable file" .exe
+AddDescription "Common Gateway Interface" .cgi
+AddDescription "Joint Photographics Experts Group" .jpg .jpeg .jpe
+AddDescription "Graphic Interchange Format" .gif
+AddDescription "Portable Network Graphic" .png
+AddDescription "Vector graphic" .ps .ai .eps
+AddDescription "Hypertext Markup Language" .html .shtml .htm
+AddDescription "Cascading Style Sheet" .css
+AddDescription "DocType Definition" .dtd
+AddDescription "Extensible Markup Language" .xml
+AddDescription "Win32 compressed HTML help" .chm
+AddDescription "Adobe Portable Document Format" .pdf
+AddDescription "Plain text file" .txt .nfo .faq .readme
+AddDescription "Unix man page" .man
+AddDescription "Email data" .eml .mbox
+AddDescription "Microsoft Word document" .doc
+AddDescription "PHP: Hypertext Preprocessor script" .php  .php3 .php4
+AddDescription "PHP: Hypertext Preprocessor source code" .phps
+AddDescription "Javascript" .js
+AddDescription "Java code"  .java
+AddDescription "Unix shell script" .sh .shar .csh .ksh .command
+AddDescription "Mac OS X shell script" .command
+AddDescription "Configuration file" .conf
+AddDescription "Mac OS X terminal" .term
+AddDescription "BitTorrent file" .torrent
+AddDescription "Windows link" .lnk .url</pre></div><br>
+For the full directory listings, you'll need to add the apache icons 
+folder into the build, as it's currently missing. You can download it 
+from here:<br>
+<a class="bbcode_url" href="https://drive.google.com/file/d/0B9tjMpKj5S4hTDh2V0dUMDJ4Nlk/edit?usp=sharing" target="_blank" rel="nofollow">drive.google.com/file/d/0B9tjMpKj5S4hTDh2V0dUMDJ4Nlk/edit?usp=sharing</a><br>
+<br>
+You'll also need to set the path to the icon folder in extra/httpd-autoindex.conf.<br>
+<br>
+I also noticed one strange thing with MySQL - by default it seems to 
+allow root to login without a password from any host. Then there's 
+specific entries for root on localhost,127.0.0.1 and openelec (hostname)
+ which do require a password. This would mean in theory if the MySQL 
+port was publically visible anyone could log in as root without a 
+password. Ofcourse easily correctable from command line or even 
+phpMyAdmin; just might be an idea to override that as default behavior.<br>
+<br>
+Hope this will be of some use.	</div>
+</div>
+<div>
+<div id="kreply110122_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="110122" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="dominic7il" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+		<span class="kmessage-editmarkup" title="11 Jun 2014 22:54">
+		Last Edit: 2 years 8 months ago by <a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow">dominic7il</a>.			</span>
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/110122" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply110122" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110122" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110122" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110122?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>														</div>
+</div>
+<div class="kpost-thankyou">
+	<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/110122/task-thankyou/userid-1155?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="I want to thank you for this message.">
+	<span class="thankyou"><span>Thank You</span></span>
+</a></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="12 Jun 2014 01:07">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="110131"></a>
+			<a href="#110131" rel="nofollow">#14</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow">dominic7il</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/20408-dominic7il" title="View dominic7il's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/6a8fee9bbc7dc541295ee0e360b9a505.jpg" alt="dominic7il's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-no">
+				<span class="online-no">
+					<span>Offline</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Expert Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank4.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 205</li>
+							<li class="kpost-usertyr">Thank you received: 37</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 9  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmadown?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-minus" alt="Karma-" border="0" title="Smite"> </span></a>  <a href="http://openelec.tv/forum/profile/20408-dominic7il/task-karmaup?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow"><span class="kkarma-plus" alt="Karma+" border="0" title="Applaud"> </span></a>			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: UK"></span>			<a href="https://www.dcrdev.com/" target="_blank"><span class="kicon-profile kicon-profile-website" title="Web site: dcrdev.com"></span></a>			<a href="http://openelec.tv/component/uddeim/?task=new&amp;recip=20408" title="Click here to send a private message to this user."><span class="kicon-profile kicon-profile-pm" alt="Click here to send a private message to this user."></span></a>					</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		Finally figured out SSL -<br>
+You need to add "KeepAlive Off" to httpd.conf<br>
+<br>
+Can't friggin believe it was that simple.	</div>
+</div>
+<div>
+<div id="kreply110131_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="110131" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="dominic7il" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/110131" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply110131" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110131" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110131" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110131?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>														</div>
+</div>
+<div class="kpost-thankyou">
+	<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/110131/task-thankyou/userid-1155?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="I want to thank you for this message.">
+	<span class="thankyou"><span>Thank You</span></span>
+</a></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+<div class="kmsg-header kmsg-header-left">
+	<h2>
+		<span class="kmsgtitle kmsg-title-left">
+			Re:LAMP addon - Linux, Apache, MySQL PHP bundle		</span>
+		<span class="kmsgdate kmsgdate-left" title="12 Jun 2014 08:05">
+			2 years 8 months ago		</span>
+		<span class="kmsg-id-left">
+			<a id="110147"></a>
+			<a href="#110147" rel="nofollow">#15</a>		</span>
+	</h2>
+</div>
+<table class="kmsg">
+	<tbody>
+		<tr>
+			<td rowspan="2" class="kprofile-left">
+					<ul class="kpost-profile">
+		<li class="kpost-username">
+			<a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow">ultraman</a>		</li>
+						<li class="kpost-avatar">
+			<span class="kavatar"><a class="kwho-user" href="http://openelec.tv/forum/profile/1155-ultraman" title="View ultraman's Profile" rel="nofollow"><img class="kavatar" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/60249b7cb98fd38f4e28a5dd028b20e4.png" alt="ultraman's Avatar" style="max-width: 90px; max-height: 90px"></a></span>
+		</li>
+		
+		
+		<li>
+			<span class="kicon-button kbuttononline-yes">
+				<span class="online-yes">
+					<span>Online</span>
+				</span>
+			</span>
+		</li>
+
+				<li class="kpost-userrank">
+			Platinum Boarder		</li>
+						<li class="kpost-userrank-img">
+			<img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/rank6.gif" alt="">		</li>
+		
+						<li class="kpost-userposts">Posts: 4648</li>
+							<li class="kpost-usertyr">Thank you received: 888</li>
+								<li class="kpost-karma">
+			<span class="kmsgkarma">
+				Karma: 326  			</span>
+		</li>
+				
+		<li class="kpost-smallicons">
+			<span class="kicon-profile kicon-profile-gender-male" title="Gender: Male"></span>						<span class="kicon-profile kicon-profile-location" title="Location: Maribor, Slovenia"></span>											</li>
+
+		</ul>
+			</td>
+			<td class="kmessage-left">
+				
+<div class="kmsgbody">
+	<div class="kmsgtext">
+		Great news! I will put all those things together. I removed the icons 
+because I though they are used only by manual. My mistake...<br>
+<br>
+Can you explain about this mysql issue little more. What need to be done to prevent paswordless login?	</div>
+</div>
+<div>
+<div id="kreply110147_form" class="kreply-form" style="display: none">
+	<form action="/forum" method="post" name="postform" enctype="multipart/form-data">
+		<input name="view" value="topic" type="hidden">
+		<input name="task" value="post" type="hidden">
+		<input name="parentid" value="110147" type="hidden">
+		<input name="catid" value="141" type="hidden">
+		<input name="626fc7457837a8ee6c2d467a6e75c581" value="1" type="hidden">
+				<input name="authorname" value="ultraman" type="hidden">
+				<input name="subject" size="35" class="inputbox" maxlength="50" value="Re:LAMP addon - Linux, Apache, MySQL PHP bundle" type="text"><br>
+		<textarea class="inputbox" name="message" rows="6" cols="60"></textarea><br>
+				<input name="subscribeMe" value="1" type="checkbox">
+		<i>Check this box to be notified of replies to this topic.</i>
+		<br>
+				<input class="kbutton kreply-submit" name="submit" value="Submit" title="Click here to submit your message" type="submit">
+		<input class="kbutton kreply-cancel" name="cancel" value="Cancel" title="Click here to cancel your message" type="reset">
+		<small>Note: BBcode and smileys are still usable.</small>
+	</form>
+</div>
+			</div></td>
+		</tr>
+		<tr>
+			<td class="kbuttonbar-left">
+				<div>
+		<div class="kmsgsignature">
+		ultraman == vpeter<br>
+<a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle" class="bbcode_url" rel="nofollow" target="_blank">LAMP addon - Linux, Apache, MySQL PHP bundle</a><br>
+Sundtek and HDHomeRun DVB driver addons	</div>
+	</div>
+<div class="kmessage-editmarkup-cover">
+			<span class="kmessage-informmarkup"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/report/110147" title="Report to moderator" rel="nofollow">Report to moderator</a></span>
+		</div>
+<div class="kmessage-buttons-cover">
+	<div class="kmessage-buttons-row">
+			<a id="kreply110147" class="kicon-button kbuttoncomm kqreply btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110147" rel="nofollow" title="Quick reply this message.">
+	<span class="reply"><span>Quick Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110147" rel="nofollow" title="Reply to this message.">
+	<span class="reply"><span>Reply</span></span>
+</a>		<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply/110147?quote=1" rel="nofollow" title="Quote this message.">
+	<span class="quote"><span>Quote</span></span>
+</a>		<a class="kicon-button kbuttonmod btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/edit/110147" rel="nofollow" title="Edit this message.">
+	<span class="edit"><span>Edit</span></span>
+</a>												</div>
+</div>
+<div class="kmessage-thankyou">
+The following user(s) said Thank You: <a class="kwho-user" href="http://openelec.tv/forum/profile/42250-duma" title="View Duma's Profile" rel="nofollow">Duma</a> </div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Begin: Message Module Position -->
+<!-- Finish: Message Module Position -->
+</div>
+	</div>
+</div>
+<table class="klist-actions">
+	<tbody><tr>
+		<td class="klist-actions-goto">
+			<a name="forumbottom"></a><a class="kbuttongoto" href="#forumtop" rel="nofollow"><span class="kicon kforumtop" title="Go to top"></span></a>		</td>
+		<td class="klist-actions-forum">
+					<div class="kmessage-buttons-row">
+			<a class="kicon-button kbuttoncomm btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/reply" rel="nofollow" title="Reply to this topic.">
+	<span class="reply"><span>Reply Topic</span></span>
+</a>			<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/task-unsubscribe?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="Unsubscribe from this topic.">
+	<span class="subscribe"><span>Unsubscribe</span></span>
+</a>			<a class="kicon-button kbuttonuser btn-left" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle/task-unfavorite?626fc7457837a8ee6c2d467a6e75c581=1" rel="nofollow" title="Unfavorite this topic.">
+	<span class="favorite"><span>Unfavorite</span></span>
+</a>			</div>
+						</td>
+		
+		<td class="klist-pages-all">
+			<ul class="kpagination"><li class="page">Page:</li><li><span class="pagenav">1</span></li><li><a title="2" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=15" class="pagenav">2</a></li><li><a title="3" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=30" class="pagenav">3</a></li><li><a title="4" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=45" class="pagenav">4</a></li><li><a title="5" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=60" class="pagenav">5</a></li><li>...</li><li><a title="30" href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle?start=435" class="pagenav">30</a></li></ul>		</td>
+	</tr>
+</tbody></table>
+
+<div class="kcontainer klist-bottom">
+	<div class="kbody">
+		<div class="kmoderatorslist-jump fltrt">
+						</div>
+			</div>
+</div>
+
+<div class="kblock kpathway">
+	<div class="kcontainer" id="pathway_tbody">
+		<div class="ksectionbody">
+			<div class="kforum-pathway">
+				<div class="path-element-first"><a href="http://openelec.tv/forum">Forum</a></div>
+								<div class="path-element"><a href="http://openelec.tv/forum/generic-forum">Generic Forum</a></div>
+								<div class="path-element"><a href="http://openelec.tv/forum/77-openelec-addons">OpenELEC Addons</a></div>
+								<div class="path-element"><a href="http://openelec.tv/forum/unofficial-openelec-addons">unofficial OpenELEC Addons</a></div>
+								<div class="path-element"><a href="http://openelec.tv/forum/unofficial-openelec-addons/71461-lamp-addon-linux-apache-mysql-php-bundle">LAMP addon - Linux, Apache, MySQL PHP bundle</a></div>
+							</div>
+		</div>
+	</div>
+</div>
+<!-- Module position: kunena_bottom -->
+
+<div class="krss-block"><a href="http://openelec.tv/forum/topics/mode-topics?format=feed" rel="follow"><span class="kicon krss" title="get the latest posts directly to your desktop"></span></a></div>
+</div>
+<div style="text-align:center"><a href="http://openelec.tv/forum/credits" rel="follow" style="display: inline; visibility: visible; text-decoration: none;">Powered by</a> <a href="http://www.kunena.org/" rel="follow" target="_blank" style="display: inline; visibility: visible; text-decoration: none;">Kunena Forum</a></div>
+    				</div>
+                </div>
+    		</div>
+                                </div>
+
+                
+        <div class="clear"></div>
+    </div>
+</div>
+			</div>
+					</section>
+
+		
+		
+				<footer id="rt-footer-surround">
+			<div class="rt-footer-surround-pattern">
+								<div id="rt-bottom">
+					<div class="rt-container">
+						<div class="rt-flex-container">
+							<div class="rt-grid-6 rt-alpha">
+     			            <div class="rt-block fa fa-twitter title2">
+           	<div class="module-surround">
+	           				<div class="module-title">
+					<h2 class="title"><span class="title-icon fa fa-twitter"></span><span>Be social, join our community now!</span></h2>			</div>
+	                		                	<div class="module-content">
+	                		
+
+<div class="customfa fa-twitter title2">
+	<p style="text-align: left;">We invite everyone to actively participate
+ in the OpenELEC community. In a short time we have become a bustling 
+project with many keen users of all skill levels helping out daily. 
+OpenELEC is for everyone and following us on social media not only keeps
+ you up to date but helps the project by letting more people know about 
+us.</p>
+<ul>
+<li style="text-align: left;">Forum: <a href="http://openelec.tv/forum" target="_blank">http://openelec.tv/forum</a></li>
+<li style="text-align: left;">IRC: #openelec on freenode.net (also avaible via <a href="http://openelec.tv/find-help/chat" target="_blank">our webchat</a>)</li>
+<li style="text-align: left;">Twitter: <a href="https://twitter.com/openelec" target="_blank">https://twitter.com/openelec</a></li>
+<li style="text-align: left;">Facebook: <a href="http://www.facebook.com/OpenELEC" target="_blank">http://www.facebook.com/OpenELEC</a></li>
+<li style="text-align: left;">Google+: <a href="https://plus.google.com/u/0/b/112115795516947592126/112115795516947592126/posts" target="_blank">https://plus.google.com/+openelec</a></li>
+</ul></div>
+	                	</div>
+                	</div>
+           </div>
+	
+</div>
+<div class="rt-grid-6 rt-omega">
+     			            <div class="rt-block fa fa-thumbs-o-up title2">
+           	<div class="module-surround">
+	           				<div class="module-title">
+					<h2 class="title"><span class="title-icon fa fa-thumbs-o-up"></span><span>How can I help?</span></h2>			</div>
+	                		                	<div class="module-content">
+	                		
+
+<div class="customfa fa-thumbs-o-up title2">
+	<p>If you want to contribute to the OpenELEC project, you can make a 
+donation using PayPal, Flattr or Bitcoin. Donating is easy, takes only a
+ few minutes.</p>
+<p>You do not need a PayPal account to make a PayPal donation. We have 
+not set up our PayPal donation page to suggest a donation amount; please
+ just donate what you feel comfortable with.</p>
+<div class="gantry-row rt-center">
+<div class="gantry-width-container">
+<div class="gantry-width-50">
+<div class="gantry-width-spacer">
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=X2T93QJ7Q2Q7Q" target="_blank" title="Donate - PayPAL"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/btn_donateCC_LG.gif" alt="" width="122" height="47" border="0"></a></p>
+</div>
+</div>
+<div class="gantry-width-50">
+<div class="gantry-width-spacer">
+<p><a href="https://flattr.com/thing/351559/OpenELEC-Mediacenter-OS" target="_blank"> <img style="border: 0;" title="Flattr this" src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/flattr-badge-large.png" alt="Flattr this" border="0"></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="gantry-row rt-center">
+<div class="gantry-width-container">
+<div class="gantry-width-100" style="margin: 0 auto;">
+<div class="gantry-width-spacer">
+<p><a href="http://www.bitcoin.org/" target="_blank">Bitcoin Address:</a> 157WZSD1bDyJNWVQrKqaf5oF343q9Dscuf</p>
+</div>
+</div>
+</div>
+</div></div>
+	                	</div>
+                	</div>
+           </div>
+	
+</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>												<div id="rt-footer">
+					<div class="rt-container">
+						<div class="rt-flex-container">
+							<div class="rt-grid-12 rt-alpha rt-omega">
+     			            <div class="rt-block fa fa-heart title2 hidden-phone hidden-tablet">
+           	<div class="module-surround">
+	           				<div class="module-title">
+					<h2 class="title"><span class="title-icon fa fa-heart"></span><span>Our Sponsors &amp; Partners</span></h2>			</div>
+	                		                	<div class="module-content">
+	                		
+
+<div class="customfa fa-heart title2 hidden-phone hidden-tablet">
+	<table style="width: 100%;">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="http://www.zotac.com/" target="_blank"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/zotac-logo.png" alt="" border="0"></a></td>
+<td style="text-align: center;"><a href="http://wetek.com/" target="_blank"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/wetek.png" alt="" width="202" height="32" border="0">
+</a></td><td style="text-align: center;"><a href="http://www.i-njoy.eu/" target="_blank"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/njoy_digital.png" alt="" border="0"></a></td>
+<td style="text-align: center;"><a href="http://www.arctic.ac/" target="_blank"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/arctic_logo-1.png" alt="arctic_logo" width="150" height="96" border="0"></a></td>
+<td style="text-align: center;"><a href="http://www.pulse-eight.com/" target="_blank"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/pulse-eight_logo.png" alt="" border="0"></a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="http://www.at-visions.com/" target="_blank"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/at-visions.png" alt="at-visions" width="180" height="54" border="0"></a></td>
+<td style="text-align: center;"><a href="http://wetek.com/" target="_blank"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/wetek.png" alt="" width="202" height="32" border="0"></a>&nbsp;</td>
+<td style="text-align: center;" colspan="2"><a href="http://www.solnet.ch/" target="_blank"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/solnet_logo.png" alt="SolNet" width="322" height="50" border="0"></a>&nbsp;&nbsp;</td>
+<td style="text-align: center;"><a href="http://thepihut.com/" target="_blank"><img src="OpenELEC%20Mediacenter%20-%20OpenELEC%20Forum%20-%20LAMP%20addon%20-%20Linux,%20Apache,%20MySQL%20PHP%20bundle%20%281_30%29_files/ThePiHut.png" alt="ThePiHut" width="150" height="50" border="0"></a>&nbsp;</td>
+</tr>
+</tbody>
+</table></div>
+	                	</div>
+                	</div>
+           </div>
+	
+</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+																<div id="rt-copyright">
+					<div class="rt-container">
+						<div class="rt-flex-container">
+							<div class="rt-grid-6 rt-alpha">
+    	<div class="rt-copyright-content rt-block">
+		Copyright © 2009-2016 OpenELEC. All Rights Reserved.	</div>
+	
+</div>
+<div class="rt-grid-6 rt-omega">
+    	<div class="clear"></div>
+	<div class="rt-block rt-center wow bounceInUp" data-wow-delay="0.5s" style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
+		<a href="#" id="gantry-totop" rel="nofollow" style="outline: medium none;"><i class="fa fa-angle-up"></i></a>
+		<div class="clear"></div>
+	</div>
+	
+</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+							</div>
+		</footer>
+		
+		
+						
+									</div>
+
+	    
+
+
+<div id="mbOverlay" style="display: none; opacity: 0;"></div><div id="mbCenter" style="display: none;"><div id="mbContainer"><div id="mbMedia"></div></div><div id="mbBottom" style="opacity: 0;"><a id="mbCloseLink" href="#"></a><a id="mbNextLink" href="#"></a><a id="mbPrevLink" href="#"></a><div id="mbTitle"></div><div id="mbNumber"></div><div id="mbCaption"></div></div></div><div data-rokboxwrapper="true" class="rokbox-wrapper"><div data-rokboxouter="true" class="rokbox-outer"><div data-rokboxheader="true" class="rokbox-header"><div data-rokboxicon="x" data-rokboxclose="true" class="rokbox-close"></div></div><div data-rokboxrow="true" class="rokbox-row"><div data-rokboxinner="true" class="rokbox-inner"><div data-rokboxcontainer="true" class="rokbox-container"><div data-rokboxloader="true" class="rokbox-loader"><div class="rokbox-loader-image"></div></div><div data-rokboxcontent="true" class="rokbox-content"></div><div data-rokboxcontrols="true" class="rokbox-controls"><div data-rokboxicon="x" data-rokboxclose="true" class="rokbox-close"></div><div data-rokboxprevious="true" class="rokbox-previous"><div data-rokboxicon="p"></div></div><div data-rokboxnext="true" class="rokbox-next"><div data-rokboxicon="n"></div></div><div data-rokboxicon="d" data-rokboxfitscreen="true" class="rokbox-fitscreen"></div><div data-rokboxicon="w" data-rokboxunfitscreen="true" class="rokbox-unfitscreen"></div></div><div data-rokboxcaption="true" class="rokbox-caption"></div></div></div></div><div data-rokboxfooter="true" class="rokbox-footer"><div data-rokboxprevious="true" class="rokbox-previous"><div data-rokboxicon="p"></div></div><div data-rokboxnext="true" class="rokbox-next"><div data-rokboxicon="n"></div></div></div></div></div><div class="gf-menu-toggle" style="display: none;"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div><div class="gf-menu-device-wrapper-sidemenu"><div class="gf-menu-device-container responsive-type-panel">
+    
+<div class="gf-menu-device-container-wrapper"></div></div></div><div id="lightbox-tmp"></div><div id="lightbox-loading"><div></div></div><div id="lightbox-overlay" style="display: none;"></div><div id="lightbox-wrap"><div id="lightbox-outer"><div id="lightbox-content"></div><a id="lightbox-close"></a><div id="lightbox-title"></div><a href="javascript:;" id="lightbox-left"><span id="lightbox-left-ico"></span></a><a href="javascript:;" id="lightbox-right"><span id="lightbox-right-ico"></span></a></div></div></body></html>

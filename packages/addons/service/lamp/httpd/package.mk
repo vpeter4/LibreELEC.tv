@@ -19,7 +19,7 @@
 ################################################################################
 
 PKG_NAME="httpd"
-PKG_VERSION="2.4.23"
+PKG_VERSION="2.4.25"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="OpenSource"
@@ -50,6 +50,9 @@ configure_target() {
 
   export CFLAGS="$CFLAGS -I$SYSROOT_PREFIX/usr/include"
   export LDFLAGS="$LDFLAGS -L$SYSROOT_PREFIX/usr/lib -lpthread -ldl"
+
+# fix this
+  export LDFLAGS="$LDFLAGS -L$APR_UTIL_DIR_TARGET/usr/lib"
 
 if [ "$TARGET_ARCH" = x86_64 ]; then
   SIZEOF_SIZES="ac_cv_sizeof_struct_iovec=16"

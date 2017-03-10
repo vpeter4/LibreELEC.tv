@@ -22,10 +22,10 @@ are running on the system at the same time).
 
 Signed-off-by: Thomas Petazzoni <thomas.petazzoni@free-electrons.com>
 
-Index: b/source/config/mh-linux
+Index: b/config/mh-linux
 ===================================================================
---- a/source/config/mh-linux
-+++ b/source/config/mh-linux
+--- a/config/mh-linux
++++ b/config/mh-linux
 @@ -35,7 +35,7 @@
  ## Shared object suffix
  SO = so

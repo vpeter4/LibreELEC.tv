@@ -1,2 +1,6 @@
+102
+- bumped all packages
+101
+- rebuild for LibreELEC 8.0.0
 100
 - initial LibreELEC version

@@ -17,7 +17,7 @@
 ################################################################################
 
 PKG_NAME="aria2"
-PKG_VERSION="1.28.0"
+PKG_VERSION="1.31.0"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

@@ -18,13 +18,13 @@
 
 PKG_NAME="lamp"
 PKG_VERSION="1.0"
-PKG_REV="100"
+PKG_REV="102"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE=""
 PKG_URL=""
 PKG_DEPENDS_TARGET="toolchain httpd php mysqld ssh2 phpMyAdmin eglibc-localedef:host smbclient msmtp aria2 apcu"
-PKG_SECTION="service"
+PKG_SECTION="service/web"
 PKG_SHORTDESC="LAMP: (Linux Apache MySQL PHP) software bundle."
 PKG_LONGDESC="LAMP ($PKG_VERSION.$PKG_REV): (Linux Apache MySQL PHP) software bundle."
 PKG_AUTORECONF="no"
@@ -60,11 +60,11 @@ addon() {
   cp $(get_build_dir msmtp)/.install_pkg/usr/bin/msmtp $ADDON_BUILD/$PKG_ADDON_ID/bin
   cp $(get_build_dir aria2)/.$TARGET_NAME/src/aria2c $ADDON_BUILD/$PKG_ADDON_ID/bin
   cp -PR $MYSQL_DIR/usr/bin/* $ADDON_BUILD/$PKG_ADDON_ID/bin
-  cp -PR $MYSQL_DIR/usr/lib/mysqld $ADDON_BUILD/$PKG_ADDON_ID/bin
-  cp -PR $MYSQL_DIR/usr/lib/mysqlmanager $ADDON_BUILD/$PKG_ADDON_ID/bin
 
   # create lib folder and copy libraries
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/lib
+  cp -PR $MYSQL_DIR/usr/lib/* $ADDON_BUILD/$PKG_ADDON_ID/lib
+  
   cp -PR $HTTPD_DIR/usr/lib/* $ADDON_BUILD/$PKG_ADDON_ID/lib
   cp -PR $(get_build_dir libressl)/.install_pkg/usr/lib/lib*.so* $ADDON_BUILD/$PKG_ADDON_ID/lib
   cp -PR $(get_build_dir apr)/.install_dev/usr/lib/lib*.so* $ADDON_BUILD/$PKG_ADDON_ID/lib
@@ -139,7 +139,7 @@ addon() {
 
   # list libraries
   echo "Required libraries:"
-  find $ROOT/$BUILD/addons/lamp/service.web.lamp/ -type f -exec objdump -x "{}" ";" 2>/dev/null | grep NEEDED | sort | uniq | grep -Ev "libc.so|libdl.so|libgcc_s.so|libm.so|libnsl.so|libpthread.so|libresolv.so|librt.so|librtmp.so|libstdc\+\+.so|libuuid.so|libcrypt.so" | awk '{printf("  %s\n", $2)}' | tee $ADDON_BUILD/libs-required.dat
+  find $ROOT/$BUILD/addons/lamp/service.web.lamp/ -type f -exec objdump -x "{}" ";" 2>/dev/null | grep NEEDED | sort -u  | grep -Ev "libc.so|libdl.so|libgcc_s.so|libm.so|libnsl.so|libpthread.so|libresolv.so|librt.so|librtmp.so|libstdc\+\+.so|libuuid.so|libcrypt.so" | awk '{printf("  %s\n", $2)}' | tee $ADDON_BUILD/libs-required.dat
   cat $ADDON_BUILD/libs-required.dat
   missing_lib="0"
 

@@ -1,0 +1,19 @@
+--- a/config/icu-config-bottom1	2016-09-09 23:28:18.000000000 +0200
++++ b/config/icu-config-bottom	2017-02-23 20:06:51.580401867 +0100
+@@ -98,15 +98,7 @@
+ ## Check the sanity of current variables
+ sanity()
+ {
+-    if [ ! -f "${ICUUC_FILE}" -a ! -f "${ICUUC_FILE_A}" ] && [ ${IGNORE_ICUUC_FILE_CHECK} = "no" ] && [ ${SANITY} = "sane" ];
+-    then
+-	echo "### $ME: Can't find ${ICUUC_FILE} - ICU prefix is wrong."  1>&2
+-	echo "###      Try the --prefix= option " 1>&2
+-	echo "###      or --detect-prefix" 1>&2
+-        echo "###      (If you want to disable this check, use  the --noverify option)" 1>&2
+-	echo "### $ME: Exitting." 1>&2
+-	exit 2
+-    fi
++  : # dummy
+ }
+ 
+ ## Main starts here.

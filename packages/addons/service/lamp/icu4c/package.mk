@@ -17,9 +17,8 @@
 ################################################################################
 
 PKG_NAME="icu4c"
-PKG_VERSION="57.1"
-PKG_VERSION="58.1"
-PKG_VERSION_UNDERSCORE="$(echo $PKG_VERSION | tr '.' '_' )"
+PKG_VERSION="58.2"
+PKG_VERSION_UNDERSCORE="${PKG_VERSION//./_}"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="OpenSource"

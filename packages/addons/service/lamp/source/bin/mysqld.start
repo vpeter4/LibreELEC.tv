@@ -57,7 +57,9 @@ FIRST_RUN=0
 if [ ! -d "$ADDON_HOME/data/mysql" ]; then
   echo "Running first time table setup"
   FIRST_RUN=1
-  $ADDON_DIR/bin/mysql_install_db --basedir=$ADDON_DIR --datadir=$ADDON_HOME/data
+  #$ADDON_DIR/bin/mysql_install_db --basedir=$ADDON_DIR --datadir=$ADDON_HOME/data
+  # --initialize-insecure will not set random password
+  $ADDON_DIR/bin/mysqld --initialize-insecure --basedir=$ADDON_DIR --datadir=$ADDON_HOME/data
 fi
 
 # copy config file
@@ -69,6 +71,7 @@ fi
 mkdir -p /var/logs/
 
 # start mysqld
+echo "start mysqld"
 exec $ADDON_DIR/bin/mysqld --defaults-file=$ADDON_HOME/mysqld.cnf &
 
 # set a root password
@@ -78,7 +81,7 @@ if [ $FIRST_RUN == 1 ] ; then
   while ! $ADDON_DIR/bin/mysql -u root -e ";" 2> /dev/null; do
     usleep 250000
   done
-
+  
   $ADDON_DIR/bin/mysqladmin -u root password $MYSQL_ROOT_PASS
   echo "Password is $MYSQL_ROOT_PASS"
 fi

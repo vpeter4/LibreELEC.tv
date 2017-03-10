@@ -35,6 +35,8 @@ PKG_AUTORECONF="no"
 pre_configure_host() {
   PKG_CONFIGURE_OPTS_HOST="--prefix=$ROOT/$PKG_BUILD \
                            --with-glibc=$(get_build_dir eglibc)"
+
+	export CFLAGS="$CFLAGS -fgnu89-inline"
 }
 
 make_host() {

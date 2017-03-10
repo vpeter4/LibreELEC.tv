@@ -15,10 +15,10 @@ Signed-off-by: Maxime Hadjinlian <maxime.hadjinlian@devialet.com>
  source/config/mh-linux | 4 +++-
  1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/source/config/mh-linux b/source/config/mh-linux
+diff --git a/config/mh-linux b/config/mh-linux
 index 531a3b2..5a2a7c4 100644
---- a/source/config/mh-linux
-+++ b/source/config/mh-linux
+--- a/config/mh-linux
++++ b/config/mh-linux
 @@ -21,7 +21,9 @@ LD_RPATH= -Wl,-zorigin,-rpath,'$$'ORIGIN
  LD_RPATH_PRE = -Wl,-rpath,
 

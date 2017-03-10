@@ -8,7 +8,7 @@ $cfg['SaveDir'] = '';
 
 $i = 1;
 
-$cfg['Servers'][$i]['verbose'] = 'OpenELEC';
+$cfg['Servers'][$i]['verbose'] = 'LibreELEC';
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['port'] = 3306;
 $cfg['Servers'][$i]['socket'] = '';

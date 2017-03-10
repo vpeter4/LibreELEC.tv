@@ -14,9 +14,9 @@ Signed-off-by: Sonic Zhang <sonic.zhang@analog.com>
 Signed-off-by: Ryan Barnett <rjbarnet@rockwellcollins.com>
 Signed-off-by: Gustavo Zacarias <gustavo@zacarias.com.ar>
 
-diff -Nura icu.orig/source/configure icu/source/configure
---- icu.orig/source/configure	2014-12-18 15:49:43.038628644 -0300
-+++ icu/source/configure	2014-12-18 15:56:05.793832186 -0300
+diff -Nura a/configure b/configure
+--- a/configure	2014-12-18 15:49:43.038628644 -0300
++++ b/configure	2014-12-18 15:56:05.793832186 -0300
 @@ -637,6 +637,7 @@
  ICUDATA_CHAR
  SAMPLES_TRUE
@@ -43,9 +43,9 @@ diff -Nura icu.orig/source/configure icu/source/configure
  # Enable/disable extras
  # Check whether --enable-extras was given.
  if test "${enable_extras+set}" = set; then :
-diff -Nura icu.orig/source/data/Makefile.in icu/source/data/Makefile.in
---- icu.orig/source/data/Makefile.in	2014-12-18 15:49:42.908624160 -0300
-+++ icu/source/data/Makefile.in	2014-12-18 16:01:32.751110913 -0300
+diff -Nura a/data/Makefile.in b/data/Makefile.in
+--- a/data/Makefile.in	2014-12-18 15:49:42.908624160 -0300
++++ b/data/Makefile.in	2014-12-18 16:01:32.751110913 -0300
 @@ -182,11 +182,11 @@
  packagedata: icupkg.inc $(PKGDATA_LIST) build-local
  ifneq ($(ENABLE_STATIC),)
@@ -92,9 +92,9 @@ diff -Nura icu.orig/source/data/Makefile.in icu/source/data/Makefile.in
  	cp $(ICUPKGDATA_OUTDIR)/$(LIB_ICUDATA_NAME)$(STUB_SUFFIX).$(SO) $(top_builddir)/stubdata/$(LIB_ICUDATA_NAME)$(STUB_SUFFIX).$(SO)
  
  
-diff -Nura icu.orig/source/extra/uconv/Makefile.in icu/source/extra/uconv/Makefile.in
---- icu.orig/source/extra/uconv/Makefile.in	2014-12-18 15:49:42.986626850 -0300
-+++ icu/source/extra/uconv/Makefile.in	2014-12-18 15:57:40.558101179 -0300
+diff -Nura a/extra/uconv/Makefile.in b/extra/uconv/Makefile.in
+--- a/extra/uconv/Makefile.in	2014-12-18 15:49:42.986626850 -0300
++++ b/extra/uconv/Makefile.in	2014-12-18 15:57:40.558101179 -0300
 @@ -58,7 +58,8 @@
  ## Static mode
  ifeq ($(UCONVMSG_MODE),static)

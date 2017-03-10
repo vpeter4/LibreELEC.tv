@@ -18,8 +18,7 @@
 ################################################################################
 
 PKG_NAME="msmtp"
-PKG_VERSION="1.6.4"
-PKG_VERSION="1.6.5"
+PKG_VERSION="1.6.6"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE=""

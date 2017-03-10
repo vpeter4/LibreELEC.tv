@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="ssh2"
-PKG_VERSION="0.12"
 PKG_VERSION="0.13"
+#PKG_VERSION="1.0"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE=""

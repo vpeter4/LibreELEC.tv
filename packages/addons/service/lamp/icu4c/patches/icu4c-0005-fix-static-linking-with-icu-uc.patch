@@ -16,10 +16,10 @@ Signed-off-by: Romain Naour <romain.naour@openwide.fr>
  source/Makefile.in | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/source/Makefile.in b/source/Makefile.in
+diff --git a/Makefile.in b/Makefile.in
 index 9db6c52..ca48e16 100644
---- a/source/Makefile.in
-+++ b/source/Makefile.in
+--- a/Makefile.in
++++ b/Makefile.in
 @@ -264,7 +264,7 @@ config/icu-uc.pc: config/icu.pc Makefile icudefs.mk
  	@echo "Description: $(PACKAGE_ICU_DESCRIPTION): Common and Data libraries" >> $@
  	@echo "Name: $(PACKAGE)-uc" >> $@
