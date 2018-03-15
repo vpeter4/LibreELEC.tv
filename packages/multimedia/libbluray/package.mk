@@ -23,7 +23,7 @@ PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="https://www.videolan.org/developers/libbluray.html"
 PKG_URL="https://ftp.videolan.org/pub/videolan/libbluray/$PKG_VERSION/$PKG_NAME-$PKG_VERSION.tar.bz2"
-PKG_DEPENDS_TARGET="toolchain fontconfig freetype libxml2"
+PKG_DEPENDS_TARGET="toolchain fontconfig freetype libxml2 apache-ant:host"
 PKG_SECTION="multimedia"
 PKG_SHORTDESC="libbluray: A Blu-Ray Discs playback library"
 PKG_LONGDESC="libbluray is an open-source library designed for Blu-Ray Discs playback for media players, like VLC or MPlayer."
@@ -41,7 +41,7 @@ PKG_CONFIGURE_OPTS_TARGET="--disable-werror \
                            --disable-extra-warnings \
                            --disable-optimizations \
                            --disable-examples \
-                           --disable-bdjava-jar \
+                           --enable-bdjava-jar \
                            --disable-doxygen-doc \
                            --disable-doxygen-dot \
                            --disable-doxygen-man \
@@ -56,3 +56,9 @@ PKG_CONFIGURE_OPTS_TARGET="--disable-werror \
                            --with-fontconfig \
                            --with-libxml2 \
                            --with-gnu-ld"
+
+post_unpack() { 
+  local ANT_EXE="$(get_build_dir apache-ant)/bin/ant"
+  local JAVA_HOME="$(get_build_dir jdk)"
+  sed -e "s|ant -f|JAVA_HOME=$JAVA_HOME $ANT_EXE -f|g" -i $PKG_BUILD/Makefile.am
+}
