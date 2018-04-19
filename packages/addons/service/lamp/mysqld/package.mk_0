@@ -55,8 +55,7 @@ unpack() {
   mkdir -p $BOOST_1_59_0
   cd $BOOST_1_59_0
   if [ ! -f boost_1_59_0.tar.gz ]; then
-    #wget -O boost_1_59_0.tar.gz http://mirror.nienbo.com/boost/1.59.0/boost_1_59_0.tar.gz
-    wget -O boost_1_59_0.tar.gz wget http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz
+    wget -O boost_1_59_0.tar.gz http://mirror.nienbo.com/boost/1.59.0/boost_1_59_0.tar.gz
   fi
   rm -fr boost_1_59_0
   tar xzf boost_1_59_0.tar.gz

@@ -35,10 +35,22 @@ configure_target() {
 }
 
 make_target() {
-  SAMBA_DIR=$(get_build_dir samba)/.$TARGET_NAME
-  make -C $SAMBA_DIR bin/smbclient
+  if [ -d $(get_build_dir samba)/.$TARGET_NAME ]; then
+  	SAMBA_DIR=$(get_build_dir samba)/.$TARGET_NAME
+  else
+  	SAMBA_DIR=$(get_build_dir samba)
+  fi
+  
+  if [ ! -f $SAMBA_DIR/bin/smbclient ]; then
+		make -C $SAMBA_DIR bin/smbclient
+	fi
+}
+
+post_make_target() {
+  $STRIP $SAMBA_DIR/bin/smbclient
 }
 
 makeinstall_target() {
-  $STRIP $SAMBA_DIR/bin/smbclient
+  : # nothing
 }
+

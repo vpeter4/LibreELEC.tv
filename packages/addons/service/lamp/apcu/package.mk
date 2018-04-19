@@ -39,8 +39,8 @@ pre_configure_target() {
 
   PKG_CONFIGURE_OPTS_TARGET="--with-php-config=$PHP_DIR/usr/bin/php-config"
 
-  PHP_AUTOCONF=$ROOT/$TOOLCHAIN/bin/autoconf \
-  PHP_AUTOHEADER=$ROOT/$TOOLCHAIN/bin/autoheader \
+  PHP_AUTOCONF=$TOOLCHAIN/bin/autoconf \
+  PHP_AUTOHEADER=$TOOLCHAIN/bin/autoheader \
   $PHP_DIR/usr/bin/phpize
 
   rm aclocal.m4

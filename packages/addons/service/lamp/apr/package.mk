@@ -68,13 +68,13 @@ PKG_CONFIGURE_OPTS_TARGET="CC_FOR_BUILD=gcc \
                            cross_compiling=yes"
 
 pre_configure_target() {
-  cd $ROOT/$PKG_BUILD
+  cd $PKG_BUILD
   rm -rf .$TARGET_NAME
 }
 
 makeinstall_target() {
   # use this version only for addon (don't install it to a system)
-  INSTALL_DEV=$ROOT/$PKG_BUILD/.install_dev
+  INSTALL_DEV=$PKG_BUILD/.install_dev
   make -j1 install DESTDIR=$INSTALL_DEV $PKG_MAKEINSTALL_OPTS_TARGET
 
   $STRIP $(find $INSTALL_DEV -name "*.so" 2>/dev/null) 2>/dev/null || :

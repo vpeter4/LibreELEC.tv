@@ -20,14 +20,15 @@
 ################################################################################
 
 PKG_NAME="php"
-PKG_VERSION="5.6.30"
+#PKG_VERSION="5.6.30"
+PKG_VERSION="5.6.31"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="OpenSource"
 PKG_SITE="http://www.php.net"
 PKG_URL="http://www.php.net/distributions/$PKG_NAME-$PKG_VERSION.tar.xz"
 # add some other libraries which are need by php extensions
-PKG_DEPENDS_TARGET="toolchain zlib pcre curl libxml2 libressl libmcrypt libxslt libiconv mysql httpd icu4c libjpeg-turbo"
+PKG_DEPENDS_TARGET="toolchain zlib pcre curl libxml2 openssl libmcrypt libxslt libiconv mysql httpd icu4c libjpeg-turbo"
 PKG_SECTION="web"
 PKG_SHORTDESC="php: Scripting language especially suited for Web development"
 PKG_LONGDESC="PHP is a widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML."
@@ -45,11 +46,11 @@ post_unpack() {
   cp $PHP_BUILD_DIR/../go-pear.phar $PHP_BUILD_DIR/pear/go-pear.phar
 
   # libtool fix
-  rm $ROOT/$PKG_BUILD/aclocal.m4
+  rm $PKG_BUILD/aclocal.m4
 }
 
 configure_target() {
-  cd $ROOT/$PKG_BUILD
+  cd $PKG_BUILD
   rm -rf .$TARGET_NAME
 
   # quick hack - freetype is in different folder

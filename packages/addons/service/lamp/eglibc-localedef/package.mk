@@ -33,7 +33,7 @@ PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
 
 pre_configure_host() {
-  PKG_CONFIGURE_OPTS_HOST="--prefix=$ROOT/$PKG_BUILD \
+  PKG_CONFIGURE_OPTS_HOST="--prefix=$PKG_BUILD \
                            --with-glibc=$(get_build_dir eglibc)"
 
 	export CFLAGS="$CFLAGS -fgnu89-inline"
@@ -57,7 +57,7 @@ configure_target() {
 
 make_target() {
   # remove empty folder
-  rm -fr "$ROOT/$PKG_BUILD/.$TARGET_NAME"
+  rm -fr "$PKG_BUILD/.$TARGET_NAME"
 }
 
 makeinstall_target() {

@@ -38,13 +38,13 @@ PKG_CONFIGURE_OPTS_TARGET="ac_cv_func_realloc_0_nonnull=yes \
 
 pre_configure_target() {
   # doesn't like to be build in target folder
-  cd $ROOT/$PKG_BUILD
+  cd $PKG_BUILD
   rm -fr .$TARGET_NAME
 }
 
 makeinstall_target() {
   # use this version only for addon (don't install it to a system)
-  INSTALL_DEV=$ROOT/$PKG_BUILD/.install_dev
+  INSTALL_DEV=$PKG_BUILD/.install_dev
   make -j1 install DESTDIR=$INSTALL_DEV $PKG_MAKEINSTALL_OPTS_TARGET
 
   for i in $(find $INSTALL_DEV/usr/lib/ -name "*.la" 2>/dev/null); do

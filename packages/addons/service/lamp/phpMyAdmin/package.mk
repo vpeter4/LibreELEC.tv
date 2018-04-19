@@ -47,6 +47,6 @@ makeinstall_target() {
 
 unpack() {
   # folder required to make .libreelec-unpack file
-  mkdir $ROOT/$PKG_BUILD
+  mkdir $PKG_BUILD
   # unpack directly in addon script
 }

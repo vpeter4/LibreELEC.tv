@@ -1,0 +1,11 @@
+--- a/storage/innobase/row/row0sel.cc	2017-09-01 15:06:03.327121852 +0200
++++ b/storage/innobase/row/row0sel.cc	2017-09-01 15:04:51.309914600 +0200
+@@ -5163,7 +5163,7 @@ rec_loop:
+ 		reporting due to search views etc. */
+ 		if (prev_rec != NULL
+ 		    && prebuilt->m_mysql_handler->end_range != NULL
+-		    && prebuilt->idx_cond == false && end_loop >= 100) {
++		    && prebuilt->idx_cond == 0 && end_loop >= 100) {
+ 
+ 			dict_index_t*	key_index = prebuilt->index;
+ 			bool		clust_templ_for_sec = false;

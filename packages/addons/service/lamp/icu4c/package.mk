@@ -33,8 +33,8 @@ PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
 
 post_unpack() {
-  mv $ROOT/$PKG_BUILD/source/* $ROOT/$PKG_BUILD
-  rmdir $ROOT/$PKG_BUILD/source
+  mv $PKG_BUILD/source/* $PKG_BUILD
+  rmdir $PKG_BUILD/source
 }
 
 post_configure_host() {

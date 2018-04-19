@@ -19,13 +19,14 @@
 ################################################################################
 
 PKG_NAME="httpd"
-PKG_VERSION="2.4.25"
+#PKG_VERSION="2.4.25"
+PKG_VERSION="2.4.27"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="OpenSource"
 PKG_SITE="http://www.linuxfromscratch.org/blfs/view/svn/server/apache.html"
 PKG_URL="http://archive.apache.org/dist/httpd/$PKG_NAME-$PKG_VERSION.tar.bz2"
-PKG_DEPENDS_TARGET="toolchain apr-util libressl pcre libxml2"
+PKG_DEPENDS_TARGET="toolchain apr-util openssl pcre libxml2"
 PKG_SECTION="web"
 PKG_SHORTDESC="The Apache web server."
 PKG_LONGDESC="The Apache web server."
@@ -36,7 +37,7 @@ PKG_AUTORECONF="yes"
 APACHE_RUN_AS_ROOT=no
 
 configure_target() {
-  cd $ROOT/$PKG_BUILD
+  cd $PKG_BUILD
   rm -rf .$TARGET_NAME
 
   if [ "$APACHE_RUN_AS_ROOT" == "yes" ]; then
@@ -91,7 +92,7 @@ fi
 
 makeinstall_target() {
   # use this version only for addon (don't install it to a system)
-  INSTALL_DEV=$ROOT/$PKG_BUILD/.install_dev
+  INSTALL_DEV=$PKG_BUILD/.install_dev
   make -j1 install DESTDIR=$INSTALL_DEV $PKG_MAKEINSTALL_OPTS_TARGET
 
   $STRIP $(find $INSTALL_DEV -name "*.so" 2>/dev/null) 2>/dev/null || :

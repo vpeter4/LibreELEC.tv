@@ -25,6 +25,7 @@ PKG_LICENSE="Apache License"
 PKG_SITE="http://apr.apache.org/"
 PKG_URL="http://archive.apache.org/dist/apr/$PKG_NAME-$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain apr"
+# openssl
 PKG_SECTION="web"
 PKG_SHORTDESC="The Apache Portable Runtime Utility Library."
 PKG_LONGDESC="The Apache Portable Runtime Utility Library provides a predictable and consistent interface to underlying client library interfaces."
@@ -33,7 +34,7 @@ PKG_USE_CMAKE="no"
 PKG_AUTORECONF="no"
 
 pre_configure_target() {
-  cd $ROOT/$PKG_BUILD
+  cd $PKG_BUILD
   rm -rf .$TARGET_NAME
 
   APR_DIR_TARGET=$(get_build_dir apr)/.install_dev
@@ -53,7 +54,7 @@ pre_configure_target() {
 
 makeinstall_target() {
   # use this version only for addon (don't install it to a system)
-  INSTALL_DEV=$ROOT/$PKG_BUILD/.install_dev
+  INSTALL_DEV=$PKG_BUILD/.install_dev
   make -j1 install DESTDIR=$INSTALL_DEV $PKG_MAKEINSTALL_OPTS_TARGET
 
   $STRIP $(find $INSTALL_DEV -name "*.so" 2>/dev/null) 2>/dev/null || :
