@@ -17,35 +17,39 @@
 #  along with OpenELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="libmcrypt"
-PKG_VERSION="2.5.8"
-PKG_LICENSE="OpenSource"
-PKG_SITE="http://sourceforge.net/projects/mcrypt/"
-PKG_URL="http://sourceforge.net/projects/mcrypt/files/Libmcrypt/$PKG_VERSION/$PKG_NAME-$PKG_VERSION.tar.bz2"
-PKG_DEPENDS_TARGET="toolchain"
-PKG_LONGDESC="mcrypt, and the accompanying libmcrypt, are intended to be replacements for the old Unix crypt, except that they are under the GPL and support an ever-wider range of algorithms and modes."
-PKG_TOOLCHAIN="configure"
-PKG_BUILD_FLAGS="+pic"
+PKG_NAME="libssh2"
+PKG_VERSION="1.8.0"
+PKG_REV="1"
+PKG_ARCH="any"
+PKG_LICENSE=""
+PKG_SITE="http://libssh2.org/"
+PKG_URL="http://libssh2.org/download/$PKG_NAME-$PKG_VERSION.tar.gz"
+PKG_DEPENDS_TARGET="toolchain libgcrypt openssl"
+PKG_LONGDESC="libssh2 library"
+PKG_TOOLCHAIN="autotools"
 
-PKG_CONFIGURE_OPTS_TARGET=" \
-  ac_cv_func_realloc_0_nonnull=yes \
-  ac_cv_func_malloc_0_nonnull=yes \
-  --enable-static \
-  --disable-shared \
-"
+#PKG_BUILD_FLAGS="+pic -gold"
+#PKG_BUILD_FLAGS="+pic -lto"
 
-pre_configure_target() {
-  # doesn't like to be build in target folder
-  cd $PKG_BUILD
-  rm -fr .$TARGET_NAME
-}
+  PKG_CONFIGURE_OPTS_TARGET="
+    --enable-static \
+    --disable-shared \
+    --disable-examples-build \
+    --with-libgcrypt=$SYSROOT_PREFIX/usr \
+    --with-openssl=$SYSROOT_PREFIX/usr \
+    --with-libz \
+    --with-libz-prefix=$SYSROOT_PREFIX/usr \
+  "
 
 makeinstall_target() {
   # use this version only for addon (don't install it to a system)
   INSTALL_DEV=$PKG_BUILD/.install_dev
   make -j1 install DESTDIR=$INSTALL_DEV $PKG_MAKEINSTALL_OPTS_TARGET
 
+  $STRIP $(find $INSTALL_DEV -name "*.so" 2>/dev/null) 2>/dev/null || :
+  $STRIP $(find $INSTALL_DEV -name "*.so.[0-9]*" 2>/dev/null) 2>/dev/null || :
+
   for i in $(find $INSTALL_DEV/usr/lib/ -name "*.la" 2>/dev/null); do
-    sed -i "s|\(['= ]\)/usr|\\1$INSTALL_DEV/usr|g" $i
+    sed -i "s|\(['= ]\)/usr|\\1$INSTALL_DEV/usr|g" $i   #'
   done
 }

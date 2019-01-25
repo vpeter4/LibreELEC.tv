@@ -40,10 +40,10 @@ chmod a+x $ADDON_DIR/bin/*
 mkdir -p "$ADDON_HOME"
 
 # check/create dir for socket
-mkdir -p /var/tmp/
+#mkdir -p /var/tmp/
 
 # check/create dir for pid
-mkdir -p /var/run/
+#mkdir -p /var/run/
 
 # exit if already running
 PID=$(ps aux | grep "$ADDON_DIR/bin/mysqld " | grep -v grep | awk '{print $1}')

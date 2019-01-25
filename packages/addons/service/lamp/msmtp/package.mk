@@ -18,18 +18,13 @@
 ################################################################################
 
 PKG_NAME="msmtp"
-PKG_VERSION="1.6.6"
-PKG_REV="1"
-PKG_ARCH="any"
+PKG_VERSION="1.8.1"
 PKG_LICENSE=""
 PKG_SITE="http://msmtp.sourceforge.net/"
-PKG_URL="http://sourceforge.net/projects/msmtp/files/msmtp/$PKG_VERSION/$PKG_NAME-$PKG_VERSION.tar.xz"
+PKG_URL="https://marlam.de/$PKG_NAME/releases/$PKG_NAME-$PKG_VERSION.tar.xz"
 PKG_DEPENDS_TARGET="toolchain"
-PKG_SECTION="security"
-PKG_SHORTDESC="msmtp is an SMTP client."
 PKG_LONGDESC="msmtp is an SMTP client."
-PKG_IS_ADDON="no"
-PKG_AUTORECONF="no"
+PKG_TOOLCHAIN="configure"
 
 pre_configure_target() {
   PKG_CONFIGURE_OPTS_TARGET="--sysconfdir=/storage/.kodi/userdata/addon_data/service.web.lamp/srvroot/conf"

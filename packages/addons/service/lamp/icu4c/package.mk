@@ -17,20 +17,15 @@
 ################################################################################
 
 PKG_NAME="icu4c"
-PKG_VERSION="58.2"
+PKG_VERSION="63.1"
 PKG_VERSION_UNDERSCORE="${PKG_VERSION//./_}"
-PKG_REV="1"
-PKG_ARCH="any"
 PKG_LICENSE="OpenSource"
 PKG_SITE="http://site.icu-project.org/"
 PKG_URL="http://download.icu-project.org/files/$PKG_NAME/$PKG_VERSION/$PKG_NAME-$PKG_VERSION_UNDERSCORE-src.tgz"
 PKG_SOURCE_DIR="icu"
 PKG_DEPENDS_TARGET="toolchain icu4c:host"
-PKG_SECTION="web"
-PKG_SHORTDESC="libraries providing Unicode"
 PKG_LONGDESC="libraries providing Unicode"
-PKG_IS_ADDON="no"
-PKG_AUTORECONF="no"
+PKG_TOOLCHAIN="configure"
 
 post_unpack() {
   mv $PKG_BUILD/source/* $PKG_BUILD
@@ -53,8 +48,10 @@ makeinstall_host() {
 
 
 pre_configure_target() {
-  PKG_CONFIGURE_OPTS_TARGET="--with-cross-build=$(get_build_dir $PKG_NAME)/.$HOST_NAME \
-                             --with-data-packaging=archive \
-                             --disable-samples \
-                             --disable-tests"
+  PKG_CONFIGURE_OPTS_TARGET="
+    --with-cross-build=$(get_build_dir $PKG_NAME)/.$HOST_NAME \
+    --with-data-packaging=archive \
+    --disable-samples \
+    --disable-tests \
+  "
 }

@@ -17,36 +17,31 @@
 ################################################################################
 
 PKG_NAME="aria2"
-PKG_VERSION="1.31.0"
-PKG_REV="1"
-PKG_ARCH="any"
+PKG_VERSION="1.34.0"
 PKG_LICENSE="GPL"
 PKG_SITE="https://aria2.github.io/"
 PKG_URL="https://github.com/tatsuhiro-t/aria2/releases/download/release-$PKG_VERSION/$PKG_NAME-$PKG_VERSION.tar.xz"
 PKG_DEPENDS_TARGET="toolchain zlib openssl libxml2"
-PKG_SECTION="tools"
-PKG_SHORTDESC="aria2: lightweight multi-protocol & multi-source command-line download utility"
 PKG_LONGDESC="aria2 is a lightweight multi-protocol & multi-source command-line download utility. It supports HTTP/HTTPS, FTP, BitTorrent and Metalink. aria2 can be manipulated via built-in JSON-RPC and XML-RPC interfaces"
+PKG_TOOLCHAIN="autotools"
 
-PKG_AUTORECONF="yes"
-
-PKG_IS_ADDON="no"
-
-PKG_CONFIGURE_OPTS_TARGET="XML2_CONFIG=$SYSROOT_PREFIX/usr/bin/xml2-config \
-         --without-libuv \
-         --without-appletls \
-         --without-wintls \
-         --without-gnutls \
-         --without-libnettle \
-         --without-libgcrypt \
-         --with-openssl \
-         --without-sqlite3 \
-         --disable-xmltest \
-         --without-libexpat \
-         --with-libxml2 \
-         --without-libcares \
-         --with-ca-bundle=$SSL_CERTIFICATES/cacert.pem \
-         --with-gnu-ld"
+PKG_CONFIGURE_OPTS_TARGET="
+  XML2_CONFIG=$SYSROOT_PREFIX/usr/bin/xml2-config \
+  --without-libuv \
+  --without-appletls \
+  --without-wintls \
+  --without-gnutls \
+  --without-libnettle \
+  --without-libgcrypt \
+  --with-openssl \
+  --without-sqlite3 \
+  --disable-xmltest \
+  --without-libexpat \
+  --with-libxml2 \
+  --without-libcares \
+  --with-ca-bundle=$SSL_CERTIFICATES/cacert.pem \
+  --with-gnu-ld \
+"
 
 makeinstall_target() {
   : # meh

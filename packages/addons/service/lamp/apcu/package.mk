@@ -21,18 +21,13 @@ PKG_NAME="apcu"
 # PHP 5.3.0 or newer
 PKG_VERSION="4.0.11"
 # Release 5.1.5:  PHP Version: PHP 7.0.0-dev or newer
-PKG_REV="1"
-PKG_ARCH="any"
 PKG_LICENSE=""
 PKG_SITE="https://pecl.php.net/package/APCu"
 PKG_URL="https://pecl.php.net/get/$PKG_NAME-$PKG_VERSION.tgz"
 #PKG_DEPENDS_TARGET="toolchain libssh2 php"
-PKG_DEPENDS_TARGET="toolchain"
-PKG_SECTION="security"
-PKG_SHORTDESC="APC User Caching"
+PKG_DEPENDS_TARGET="toolchain php"
 PKG_LONGDESC="APC User Caching"
-PKG_IS_ADDON="no"
-PKG_AUTORECONF="no"
+PKG_TOOLCHAIN="configure"
 
 pre_configure_target() {
   PHP_DIR=$(get_build_dir php)/.install_dev

@@ -18,21 +18,12 @@
 
 PKG_NAME="smbclient"
 PKG_VERSION="1.0"
-PKG_REV="1"
-PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.samba.org"
 PKG_URL=""
 PKG_DEPENDS_TARGET="toolchain samba"
-PKG_SECTION="network"
-PKG_SHORTDESC="samba: The free SMB / CIFS fileserver and client"
 PKG_LONGDESC="Samba is a SMB server that runs on Unix and other operating systems. It allows these operating systems (currently Unix, Netware, OS/2 and AmigaDOS) to act as a file and print server for SMB and CIFS clients. There are many Lan-Manager compatible clients such as LanManager for DOS, Windows for Workgroups, Windows NT, Windows 95, Linux smbfs, OS/2, Pathworks and more."
-PKG_IS_ADDON="no"
-PKG_AUTORECONF="no"
-
-configure_target() {
-  : # nothing
-}
+PKG_TOOLCHAIN="manual"
 
 make_target() {
   if [ -d $(get_build_dir samba)/.$TARGET_NAME ]; then
@@ -43,6 +34,8 @@ make_target() {
   
   if [ ! -f $SAMBA_DIR/bin/smbclient ]; then
 		make -C $SAMBA_DIR bin/smbclient
+	else
+	  echo "smbclient already build ($SAMBA_DIR/bin/smbclient)"
 	fi
 }
 

@@ -1,47 +1,55 @@
-################################################################################
-#      This file is part of LibreELEC - https://LibreELEC.tv
-#      Copyright (C) 2016 Team LibreELEC
-#
-#  LibreELEC is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation, either version 2 of the License, or
-#  (at your option) any later version.
-#
-#  LibreELEC is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
-################################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)
+# Copyright (C) 2014-present ultraman
+
+# needs
+#   PKG_NAME="libssh2"
+#   PKG_NAME="libxslt"
+#   PKG_BUILD_FLAGS="+pic"
+
+#   ./scripts/rebuild libxslt
 
 PKG_NAME="lamp"
 PKG_VERSION="1.0"
-PKG_REV="104"
-PKG_ARCH="any"
+PKG_REV="105"
 PKG_LICENSE="GPL"
 PKG_SITE=""
 PKG_URL=""
-PKG_DEPENDS_TARGET="toolchain httpd php mysqld ssh2 phpMyAdmin eglibc-localedef:host smbclient msmtp aria2 apcu"
-PKG_SECTION="service/web"
-PKG_SHORTDESC="LAMP: (Linux Apache MySQL PHP) software bundle."
+PKG_DEPENDS_TARGET="toolchain expat httpd php mysqld ssh2 phpMyAdmin eglibc-localedef:host smbclient msmtp aria2 apcu"
 PKG_LONGDESC="LAMP ($PKG_VERSION.$PKG_REV): (Linux Apache MySQL PHP) software bundle."
-PKG_AUTORECONF="no"
+PKG_TOOLCHAIN="manual"
+#PKG_TOOLCHAIN="configure"
 
 PKG_IS_ADDON="yes"
+PKG_SECTION="service/web"
 PKG_ADDON_NAME="LAMP"
 PKG_ADDON_TYPE="xbmc.service"
 # PKG_ADDON_PROVIDES="executable"
 # PKG_MAINTAINER="John Doe (email)"
 
+post_unpack() {
+  echo "lamp post_unpack"
+  #read a
+}
+
+configure_target() {
+  echo "lamp configure_target"
+  #read a
+}
+
+post_configure_target() {
+  echo "lamp post_configure_target"
+  #read a
+}
 
 make_target() {
-  : # no sources here
+  echo "lamp make_target"
+  #read a
 }
 
 makeinstall_target() {
-  : # no sources here
+  echo "lamp make_target"
+  #read a
 }
 
 addon() {
@@ -148,10 +156,27 @@ addon() {
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/srvroot/conf/certs
   # how to fix this
   cp /etc/ssl/certs/ca-certificates.crt $ADDON_BUILD/$PKG_ADDON_ID/srvroot/conf/certs
+  
+  # missing other libs
+  cp -PR \
+    $SYSROOT_PREFIX/usr/lib/libdbus-1.so* \
+    $SYSROOT_PREFIX/usr/lib/libsqlite3.so* \
+    $SYSROOT_PREFIX/usr/lib/libsystemd.so* \
+    $SYSROOT_PREFIX/usr/lib/libmount.so* \
+    $SYSROOT_PREFIX/usr/lib/libblkid.so* \
+  $ADDON_BUILD/$PKG_ADDON_ID/lib
 
   # list libraries
+  echo
+  echo "LAMP build complete."
+  echo
   echo "Required libraries:"
-  find $BUILD/addons/lamp/service.web.lamp/ -type f -exec objdump -x "{}" ";" 2>/dev/null | grep NEEDED | sort -u  | grep -Ev "libc.so|libdl.so|libgcc_s.so|libm.so|libnsl.so|libpthread.so|libresolv.so|librt.so|librtmp.so|libstdc\+\+.so|libuuid.so|libcrypt.so" | awk '{printf("  %s\n", $2)}' | tee $ADDON_BUILD/libs-required.dat
+
+  find $BUILD/addons/lamp/service.web.lamp/ -type f -exec objdump -x "{}" ";" 2>/dev/null | \
+    grep NEEDED | sort -u  | \
+    grep -Ev "libc.so|libdl.so|libgcc_s.so|libm.so|libnsl.so|libpthread.so|libresolv.so|librt.so|librtmp.so|libstdc\+\+.so|libuuid.so|libcrypt.so|ld-linux-x86-64.so.2" | \
+    awk '{printf("  %s\n", $2)}' | tee $ADDON_BUILD/libs-required.dat
+
   cat $ADDON_BUILD/libs-required.dat
   missing_lib="0"
 
@@ -159,7 +184,7 @@ addon() {
   while read f; do
     ff=$(find $ADDON_BUILD -name $f 2>/dev/null)
     if [ ! -f "$ff" ]; then
-      if [ "$f" != "ld-linux-armhf.so.3" ]; then
+      if [ "$f" != "ld-linux-x86-64.so.2" ] && [ "$f" != "ld-linux-armhf.so.3" ]; then
         echo "not copied: $f"
         missing_lib="1"
       fi

@@ -20,22 +20,17 @@
 ################################################################################
 
 PKG_NAME="php"
-#PKG_VERSION="5.6.30"
-PKG_VERSION="5.6.31"
-PKG_REV="1"
-PKG_ARCH="any"
+PKG_VERSION="5.6.39"
 PKG_LICENSE="OpenSource"
 PKG_SITE="http://www.php.net"
 PKG_URL="http://www.php.net/distributions/$PKG_NAME-$PKG_VERSION.tar.xz"
 # add some other libraries which are need by php extensions
-PKG_DEPENDS_TARGET="toolchain zlib pcre curl libxml2 openssl libmcrypt libxslt libiconv mysql httpd icu4c libjpeg-turbo"
-PKG_SECTION="web"
-PKG_SHORTDESC="php: Scripting language especially suited for Web development"
+PKG_DEPENDS_TARGET="toolchain zlib pcre curl libxml2 openssl libmcrypt libxslt libiconv mysqld httpd icu4c libjpeg-turbo"
 PKG_LONGDESC="PHP is a widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML."
-PKG_IS_ADDON="no"
-PKG_AUTORECONF="yes"
-
-#export MAKEFLAGS=-j1
+PKG_TOOLCHAIN="autotools"
+#PKG_BUILD_FLAGS="+pic"
+#PKG_BUILD_FLAGS="-gold"
+#PKG_BUILD_FLAGS="+pic -gold"
 
 post_unpack() {
   PHP_BUILD_DIR=$(get_build_dir php)
@@ -56,86 +51,92 @@ configure_target() {
   # quick hack - freetype is in different folder
   # not for new
   #sed -i "s|freetype2/freetype/freetype.h|freetype2/freetype.h|g" configure
-
+  
+  MYSQL_DIR_TARGET=$(get_build_dir mysqld)/.install_dev
   LIBMCRYPT_DIR_TARGET=$(get_build_dir libmcrypt)/.install_dev
   HTTPD_DIR=$(get_build_dir httpd)/.install_dev
   ICU_DIR=$(get_build_dir icu4c)/.install_pkg
 
-  export CFLAGS="$CFLAGS -DSQLITE_OMIT_LOAD_EXTENSION"
-  export CFLAGS="$CFLAGS -I$HTTPD_DIR/usr/include"
-  export CFLAGS="$CFLAGS -I$ICU_DIR/usr/include"
+  CFLAGS+=" -DSQLITE_OMIT_LOAD_EXTENSION"
+  CFLAGS+=" -I$HTTPD_DIR/usr/include"
+  CFLAGS+=" -I$ICU_DIR/usr/include"
 
   # Dynamic Library support
-  export LDFLAGS="$LDFLAGS -ldl -lpthread"
-  export LDFLAGS="$LDFLAGS -L$ICU_DIR/usr/lib"
+  LDFLAGS+=" -ldl -lpthread"
+  LDFLAGS+=" -L$ICU_DIR/usr/lib"
 
   # libiconv
-  export CFLAGS="$CFLAGS -I$SYSROOT_PREFIX/usr/include/iconv"
-  export LDFLAGS="$LDFLAGS -L$SYSROOT_PREFIX/usr/lib/iconv -liconv"
+  CFLAGS+=" -I$SYSROOT_PREFIX/usr/include/iconv"
+  LDFLAGS+=" -L$SYSROOT_PREFIX/usr/lib/iconv -liconv"
 
+  # overwrite mysql library location
+  CFLAGS+=" -L$MYSQL_DIR_TARGET/usr/lib -lmysqlclient"
+  
+  export CFLAGS="$CFLAGS"
   export CXXFLAGS="$CFLAGS"
   export CPPFLAGS="$CFLAGS"
 
   APXS_FILE=$(get_build_dir httpd)/.install_dev/usr/bin/apxs
   chmod +x $APXS_FILE
 
-  PKG_CONFIGURE_OPTS_TARGET="--enable-cli \
-                             --enable-opcache=no \
-                             --with-pear \
-                             --with-config-file-path=/storage/.kodi/userdata/addon_data/service.web.lamp/srvroot/conf \
-                             --localstatedir=/var \
-                             --enable-sockets \
-                             --enable-session \
-                             --enable-posix \
-                             --enable-mbstring \
-                             --enable-dom \
-                             --enable-ctype \
-                             --enable-zip \
-                             --enable-ftp \
-                             --with-openssl-dir=$SYSROOT_PREFIX/usr \
-                             --enable-libxml \
-                             --enable-xml \
-                             --enable-xmlreader \
-                             --enable-xmlwriter \
-                             --enable-simplexml \
-                             --enable-fileinfo \
-                             --with-curl=$SYSROOT_PREFIX/usr \
-                             --with-openssl=$SYSROOT_PREFIX/usr \
-                             --with-zlib=$SYSROOT_PREFIX/usr \
-                             --with-bz2=$SYSROOT_PREFIX/usr \
-                             --with-zlib=$SYSROOT_PREFIX/usr \
-                             --with-iconv \
-                             --with-icu-dir=$ICU_DIR/usr \
-                             --with-icu=$ICU_DIR/usr \
-                             --with-xsl=$SYSROOT_PREFIX/usr \
-                             --enable-intl \
-                             --disable-cgi \
-                             --with-gettext \
-                             --without-gmp \
-                             --enable-json \
-                             --enable-pcntl \
-                             --disable-sysvmsg \
-                             --disable-sysvsem \
-                             --disable-sysvshm \
-                             --enable-filter \
-                             --enable-calendar \
-                             --with-pcre-regex \
-                             --with-sqlite3=$SYSROOT_PREFIX/usr \
-                             --with-pdo-sqlite=$SYSROOT_PREFIX/usr \
-                             --enable-pdo \
-                             --with-mcrypt=$LIBMCRYPT_DIR_TARGET/usr \
-                             --with-mysqli=$SYSROOT_PREFIX/usr/bin/mysql_config \
-                             --with-mysql=$SYSROOT_PREFIX/usr \
-                             --with-mysql-sock=/tmp/mysql.sock \
-                             --with-pdo-mysql=$SYSROOT_PREFIX/usr \
-                             --with-gd \
-                             --enable-gd-native-ttf \
-                             --enable-gd-jis-conv \
-                             --enable-exif \
-                             --with-jpeg-dir=$SYSROOT_PREFIX/usr \
-                             --with-freetype-dir=$SYSROOT_PREFIX/usr \
-                             --with-png-dir=$SYSROOT_PREFIX/usr \
-                             --with-apxs2=$APXS_FILE"
+  PKG_CONFIGURE_OPTS_TARGET="
+    --enable-cli \
+    --enable-opcache=no \
+    --with-pear \
+    --with-config-file-path=/storage/.kodi/userdata/addon_data/service.web.lamp/srvroot/conf \
+    --localstatedir=/var \
+    --enable-sockets \
+    --enable-session \
+    --enable-posix \
+    --enable-mbstring \
+    --enable-dom \
+    --enable-ctype \
+    --enable-zip \
+    --enable-ftp \
+    --with-openssl-dir=$SYSROOT_PREFIX/usr \
+    --enable-libxml \
+    --enable-xml \
+    --enable-xmlreader \
+    --enable-xmlwriter \
+    --enable-simplexml \
+    --enable-fileinfo \
+    --with-curl=$SYSROOT_PREFIX/usr \
+    --with-openssl=$SYSROOT_PREFIX/usr \
+    --with-zlib=$SYSROOT_PREFIX/usr \
+    --with-bz2=$SYSROOT_PREFIX/usr \
+    --with-zlib=$SYSROOT_PREFIX/usr \
+    --with-iconv \
+    --with-icu-dir=$ICU_DIR/usr \
+    --with-xsl=$SYSROOT_PREFIX/usr \
+    --enable-intl \
+    --disable-cgi \
+    --with-gettext \
+    --without-gmp \
+    --enable-json \
+    --enable-pcntl \
+    --disable-sysvmsg \
+    --disable-sysvsem \
+    --disable-sysvshm \
+    --enable-filter \
+    --enable-calendar \
+    --with-pcre-regex \
+    --with-sqlite3=$SYSROOT_PREFIX/usr \
+    --with-pdo-sqlite=$SYSROOT_PREFIX/usr \
+    --enable-pdo \
+    --with-mcrypt=$LIBMCRYPT_DIR_TARGET/usr \
+    --with-mysqli=$MYSQL_DIR_TARGET/usr/bin/mysql_config \
+    --with-mysql=$MYSQL_DIR_TARGET/usr \
+    --with-pdo-mysql=$MYSQL_DIR_TARGET/usr \
+    --with-mysql-sock=/run/mysql.sock \
+    --with-gd \
+    --enable-gd-native-ttf \
+    --enable-gd-jis-conv \
+    --enable-exif \
+    --with-jpeg-dir=$SYSROOT_PREFIX/usr \
+    --with-freetype-dir=$SYSROOT_PREFIX/usr \
+    --with-png-dir=$SYSROOT_PREFIX/usr \
+    --with-apxs2=$APXS_FILE \
+  "
 
   ac_cv_func_strcasestr=yes \
   $PKG_CONFIGURE_SCRIPT $TARGET_CONFIGURE_OPTS $PKG_CONFIGURE_OPTS_TARGET \

@@ -19,22 +19,20 @@
 
 PKG_NAME="eglibc-localedef"
 PKG_VERSION="2.19-25249"
-PKG_REV="1"
-PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.eglibc.org/"
-PKG_URL="http://sources.openelec.tv/devel/$PKG_NAME-$PKG_VERSION.tar.xz"
+#PKG_URL="http://sources.openelec.tv/devel/$PKG_NAME-$PKG_VERSION.tar.xz"
+PKG_URL="http://vpeter.libreelec.tv/lamp/$PKG_NAME-$PKG_VERSION.tar.xz"
 PKG_DEPENDS_HOST="eglibc:host"
 PKG_DEPENDS_TARGET="toolchain eglibc eglibc-localedef:host"
-PKG_SECTION="utility"
-PKG_SHORTDESC="locale"
 PKG_LONGDESC="locale"
-PKG_IS_ADDON="no"
-PKG_AUTORECONF="no"
+PKG_TOOLCHAIN="configure"
 
 pre_configure_host() {
-  PKG_CONFIGURE_OPTS_HOST="--prefix=$PKG_BUILD \
-                           --with-glibc=$(get_build_dir eglibc)"
+  PKG_CONFIGURE_OPTS_HOST="
+    --prefix=$PKG_BUILD \
+    --with-glibc=$(get_build_dir eglibc) \
+  "
 
 	export CFLAGS="$CFLAGS -fgnu89-inline"
 }
