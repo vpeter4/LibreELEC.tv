@@ -1,0 +1,6 @@
+101
+- libbluray-1.0.2
+
+100
+- Initial release
+  libbluray-1.0.1
