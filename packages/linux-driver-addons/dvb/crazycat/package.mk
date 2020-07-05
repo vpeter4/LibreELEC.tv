@@ -24,14 +24,16 @@ if ! grep -q ^CONFIG_USB_PCI= ${PKG_KERNEL_CFG_FILE} ; then
   PKG_PATCH_DIRS="disable-pci"
 fi
 
+post_unpack() {
+  cp -RP $(get_build_dir media_tree_cc)/* $PKG_BUILD/linux
+}
+
 pre_make_target() {
   export KERNEL_VER=$(get_module_dir)
   export LDFLAGS=""
 }
 
 make_target() {
-  cp -RP $(get_build_dir media_tree_cc)/* $PKG_BUILD/linux
-
   # make config all
   kernel_make VER=$KERNEL_VER SRCDIR=$(kernel_path) allyesconfig
 
